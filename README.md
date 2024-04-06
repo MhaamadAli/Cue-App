@@ -5,9 +5,7 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> An Intelligent personal assistant app which uses voice commands and location awareness to streamline your daily tasks and keep you on top of your schedule.
->
-> Imagine a world where you can navigate your day with ease, leaving the task management to Cue.  This user-friendly platform utilizes voice commands and advanced location awareness to keep you organized and on top of your schedule.  Whether it's setting reminders, managing appointments, or leveraging context-aware information retrieval, Cue empowers you to be more productive and reclaim precious moments in your day.
+> An Intelligent personal assistant app which uses voice commands and location awareness to streamline your daily tasks and keep you on top of your schedule. AI smart contextual awareness notification system ensures that you won't need any other personal assistant after Cue, your new best assistant.
 
 ### User Stories
 - As a user, I want to use voice commands to manage tasks and access information, so I can be more productive.
@@ -15,6 +13,7 @@
 - As a user, I want to manage my calendar with voice commands through the app, so I can keep my schedule organized hands-free.
 - As a user, I want to create custom categories for reminders, so I can easily find and manage them.
 
+### Admin Stories
 - As an admin, I want to view user activity statistics to understand usage patterns, so I can make informed decisions about app improvements.
 - As an admin, I want to manage user accounts, including blocking if needed, so I can maintain a safe and secure user environment.
 - As an admin, I want to view anonymized user data to improve the app, so I can identify areas for enhancement based on user behavior.
