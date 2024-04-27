@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget  {
@@ -8,6 +9,15 @@ class SplashScreen extends StatefulWidget  {
 
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Start a timer that redirects to another page after 2 seconds
+    Timer(Duration(seconds: 1), () {
+      Navigator.of(context).pushReplacementNamed("/onboarding");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
