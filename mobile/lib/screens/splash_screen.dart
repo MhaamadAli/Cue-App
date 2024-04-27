@@ -20,7 +20,14 @@ class SplashScreen extends StatelessWidget {
                 fontWeight: FontWeight.w900,
               ),
             ),
-          ], // Added the missing closing bracket for the children list
+          Text(
+              'Your personal Buddy',
+              style: TextStyle(
+                fontSize: 24, // Adjust the font size as needed
+                color: Colors.black, // Set the text color to black
+              ),
+            ),
+          ],
         ),
       ),
     );
