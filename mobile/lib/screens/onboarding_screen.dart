@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/widgets/main_button.dart';
+import 'package:mobile/widgets/onboardpage.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
+
+  @override
+  _OnboardingScreenState createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+
+  void _onSkipPressed() {
+    Navigator.of(context).pushReplacementNamed("/login");
+  }
+
+  void _onNextPressed() {
+    if (_currentPage < 2) {
+      _pageController.animateToPage(
+        _currentPage + 1,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      Navigator.of(context).pushReplacementNamed("/login");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,44 +54,39 @@ class OnboardingScreen extends StatelessWidget {
             ),
           ),
           Positioned.fill(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Spacer(),
-                  Image.asset('assets/onboarding1.png'),
-                  const Spacer(),
-                  const Text(
-                    'Behind every successful human is someone reminding him of his duties',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Cue is your daily personal assistant, it uses artificial intelligence to keep you on top of your day!',
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
-                    textAlign: TextAlign.center,
-                  ),
-                  const Spacer(),
-                  const Spacer(),
-                  SizedBox(
-                    width: double.infinity,
-                    child: MainButton(
-                      buttonText: 'Next',
-                      buttonColor: Color(0xFF06D6A0),
-                      onPressed: () {
-                        // Handle button press
-                        print('Button Pressed!');
-                      },
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (int page) {
+                setState(() {
+                  _currentPage = page;
+                });
+              },
+              children: <Widget>[
+                OnboardPage(
+                  imagePath: 'assets/onboarding1.png',
+                  text:
+                      'Behind every successful human is someone reminding him of his duties.',
+                  secondaryText:
+                      'Cue is your daily personal assistant, it uses artificial intelligence to keep you on top of your day!',
+                  buttonText: 'Next',
+                  onButtonPressed: _onNextPressed,
+                ),
+                OnboardPage(
+                  imagePath: 'assets/onboarding2.png',
+                  text: "With Cue's smart notifications you won't miss a task.",
+                  secondaryText:
+                      'You just need to talk to it and it will handle everything',
+                  buttonText: 'Next',
+                  onButtonPressed: _onNextPressed,
+                ),
+                OnboardPage(
+                  imagePath: 'assets/onboarding3.png',
+                  text: 'You talk, Cue plans.',
+                  secondaryText: '',
+                  buttonText: 'Get Started',
+                  onButtonPressed: _onNextPressed,
+                ),
+              ],
             ),
           ),
         ],
