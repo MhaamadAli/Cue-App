@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/widgets/main_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -18,7 +19,7 @@ class OnboardingScreen extends StatelessWidget {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    // Skip button logic
+                    Navigator.of(context).pushReplacementNamed("/login");
                   },
                   child: const Text(
                     'Skip',
@@ -35,7 +36,6 @@ class OnboardingScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Spacer(),
-                  // Replace with your asset image or a network image
                   Image.asset('assets/onboarding1.png'),
                   const Spacer(),
                   const Text(
@@ -53,16 +53,16 @@ class OnboardingScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const Spacer(),
+                  const Spacer(),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
+                    child: MainButton(
+                      buttonText: 'Next',
+                      buttonColor: Color(0xFF06D6A0),
                       onPressed: () {
-                        // Next button logic
+                        // Handle button press
+                        print('Button Pressed!');
                       },
-                      child: Text('Next'),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
                     ),
                   ),
                   const Spacer(),
