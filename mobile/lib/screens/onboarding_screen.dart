@@ -23,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
                   },
                   child: const Text(
                     'Skip',
-                    style: TextStyle(fontSize: 20 ,color: Colors.grey),
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
                   ),
                 )
               ],
