@@ -23,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
                   },
                   child: const Text(
                     'Skip',
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(fontSize: 20 ,color: Colors.grey),
                   ),
                 )
               ],
@@ -49,7 +49,7 @@ class OnboardingScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   const Text(
                     'Cue is your daily personal assistant, it uses artificial intelligence to keep you on top of your day!',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, color: Colors.grey),
                     textAlign: TextAlign.center,
                   ),
                   const Spacer(),
