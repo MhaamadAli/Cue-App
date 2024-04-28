@@ -46,7 +46,7 @@ class OnboardPage extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: MainButton(
-              buttonText: 'Next',
+              buttonText: buttonText,
               buttonColor: Color(0xFF06D6A0),
               onPressed: () {
                 onButtonPressed();
