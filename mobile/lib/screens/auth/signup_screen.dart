@@ -6,7 +6,7 @@ class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
 
   void handleSignup() {
-    print('signup clicked');
+    // toDO: handle signup
   }
 
   final usernameController = TextEditingController();
@@ -98,7 +98,7 @@ class SignupScreen extends StatelessWidget {
                             color: Color(0xFFDC143C),
                           )),
                       onPressed: () {
-                        // handle press
+                        Navigator.popAndPushNamed(context, "/login");
                       },
                     )
                   ]),
@@ -117,7 +117,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Handle Google sign-in logic
+                  // to be handled later ( Google Oauth )
                 },
               ),
             ],
