@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed("/welcome");
+                    Navigator.pushNamed(context, "/welcome");
                   },
                   child: const Text(
                     'Skip',
