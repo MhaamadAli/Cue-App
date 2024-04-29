@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 154),
               MainButton(
                   buttonColor: const Color(0xFF06D6A0),
-                  buttonText: 'Sign up',
+                  buttonText: 'Log In',
                   onPressed: handleSignup),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
