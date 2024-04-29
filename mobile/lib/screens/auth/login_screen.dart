@@ -6,7 +6,7 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
   void handleSignup() {
-    print('signup clicked');
+    // todo: HANDLE login
   }
 
   final usernameController = TextEditingController();
@@ -86,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                             color: Color(0xFFDC143C),
                           )),
                       onPressed: () {
-                        // handle press
+                        Navigator.popAndPushNamed(context, "/signup");
                       },
                     )
                   ]),
