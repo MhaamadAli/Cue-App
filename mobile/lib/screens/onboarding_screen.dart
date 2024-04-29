@@ -13,7 +13,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int _currentPage = 0;
 
   void _onSkipPressed() {
-    Navigator.of(context).pushReplacementNamed("/login");
+    Navigator.of(context).pushReplacementNamed("/welcome");
   }
 
   void _onNextPressed() {
@@ -24,7 +24,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      Navigator.of(context).pushReplacementNamed("/login");
+      Navigator.of(context).pushReplacementNamed("/welcome");
     }
   }
 
@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed("/login");
+                    Navigator.of(context).pushReplacementNamed("/welcome");
                   },
                   child: const Text(
                     'Skip',
