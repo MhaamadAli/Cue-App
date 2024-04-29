@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screens/login_screen.dart';
+import 'package:mobile/screens/auth/login_screen.dart';
+import 'package:mobile/screens/auth/signup_screen.dart';
+import 'package:mobile/screens/welcome_screen.dart';
 import 'package:mobile/screens/onboarding_screen.dart';
 import 'package:mobile/screens/splash_screen.dart';
 
@@ -16,13 +18,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'CUE personal buddy',
       theme: ThemeData(
+        fontFamily: 'Lexend',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
       routes: {
         "/":(context) => SplashScreen(),
         "/onboarding":(context) => OnboardingScreen(),
-        "/login":(context) => LoginScreen()
+        "/welcome":(context) => WelcomeScreen(),
+        "/login":(context) => LoginScreen(),
+        "/signup":(context) => SignupScreen(),
       }
     );
   }
