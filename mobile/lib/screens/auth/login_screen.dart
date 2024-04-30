@@ -26,6 +26,7 @@ class LoginScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
+            child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -109,7 +110,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        )),
       ),
     );
   }
