@@ -5,8 +5,8 @@ import 'package:mobile/widgets/text_field.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  void handleSignup() {
-    // todo: HANDLE login
+  void handleLogin(BuildContext context) {
+    Navigator.pushReplacementNamed(context, "/home");
   }
 
   final usernameController = TextEditingController();
@@ -40,7 +40,6 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 100),
-              
               const Text(
                 'Email',
                 style: TextStyle(
@@ -70,7 +69,7 @@ class LoginScreen extends StatelessWidget {
               MainButton(
                   buttonColor: const Color(0xFF06D6A0),
                   buttonText: 'Log In',
-                  onPressed: handleSignup),
+                  onPressed: () => handleLogin(context)),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
