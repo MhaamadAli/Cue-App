@@ -7,13 +7,13 @@ class MeetingListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      width: 380,
       height: 200,
+      margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Color(0xFF07AB81),
-        borderRadius: BorderRadius.circular(
-            25),
+        borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
             color: Color(0xFF07AB81).withOpacity(0.3),
