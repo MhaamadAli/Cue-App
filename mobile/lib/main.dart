@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screens/auth/login_screen.dart';
 import 'package:mobile/screens/auth/signup_screen.dart';
-import 'package:mobile/screens/welcome_screen.dart';
-import 'package:mobile/screens/onboarding_screen.dart';
+import 'package:mobile/screens/onboarding/welcome_screen.dart';
+import 'package:mobile/screens/onboarding/onboarding_screen.dart';
 import 'package:mobile/screens/splash_screen.dart';
 
 void main() {
