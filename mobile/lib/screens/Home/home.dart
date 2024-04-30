@@ -45,14 +45,21 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MeetingListCard(),
-                  // const SizedBox(width: 25),
-                  // MeetingListCard(), for adding the second meeting card
-                ],
-              )
+              const SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MeetingListCard(),
+                    SizedBox(width: 20),
+                    MeetingListCard(),
+                    SizedBox(
+                      width: 20
+                    ),
+                    MeetingListCard(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
