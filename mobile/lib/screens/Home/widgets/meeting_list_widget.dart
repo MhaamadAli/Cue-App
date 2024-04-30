@@ -23,7 +23,62 @@ class MeetingListCard extends StatelessWidget {
           ),
         ],
       ),
-      
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Meeting Title here',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 8, bottom: 16),
+            child: Text(
+              'Description here,Description here,Description here,Description here',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.calendar_today, size: 20, color: Colors.white),
+                  SizedBox(width: 4),
+                  Text(
+                    '20/04/2024',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+              Row(children: [
+                SizedBox(width: 30),
+                Icon(Icons.access_time, size: 20, color: Colors.white),
+                SizedBox(width: 4),
+                Text(
+                  '11:00 AM',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ]),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
