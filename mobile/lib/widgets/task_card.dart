@@ -15,6 +15,12 @@ class TaskCard extends StatelessWidget {
     this.isChecked = false,
   }) : super(key: key);
 
+  String getShortDescription() {
+    if (description.length > 40) {
+      return '${description.substring(0, 40)}...';
+    }
+    return description;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +67,7 @@ class TaskCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  description,
+                  getShortDescription(),
                   style: GoogleFonts.monomaniacOne(
                     fontWeight: FontWeight.w200,
                     color: Colors.grey,
