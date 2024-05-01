@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';
+import 'package:mobile/screens/Home/widgets/tasks_list_widget.dart';
 
 class HomeScreenContent extends StatelessWidget {
   const HomeScreenContent({super.key});
@@ -45,6 +46,9 @@ class HomeScreenContent extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
+              // use list view instead
+              // listview.builder
+              //pass scroll behavior ( snapping)
               const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -58,6 +62,7 @@ class HomeScreenContent extends StatelessWidget {
                   ],
                 ),
               ),
+              const TasksListWidget(),
             ],
           ),
         ),
