@@ -2,26 +2,25 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SplashScreen extends StatefulWidget  {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-    @override
+
+  @override
   _SplashScreenState createState() => _SplashScreenState();
 }
-
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Start a timer that redirects to another page after 2 seconds
     Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacementNamed("/onboarding");
+      Navigator.of(context).popAndPushNamed("/onboarding");
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
@@ -29,17 +28,17 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Text(
               'C U E',
-              style: TextStyle(
-                fontSize: 64,
+              style: GoogleFonts.lexendDeca(
+                fontSize: 66,
                 color: Color(0xFF06D6A0),
                 fontWeight: FontWeight.w900,
               ),
             ),
-          Text(
+            Text(
               'Your personal Buddy',
-              style: TextStyle(
-                fontSize: 24, 
-                color: Colors.black, 
+              style: GoogleFonts.roboto(
+                fontSize: 24,
+                color: Colors.black,
               ),
             ),
           ],
