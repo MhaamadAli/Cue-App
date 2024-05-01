@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/widgets/main_button.dart';
 import 'package:mobile/widgets/secondary_button.dart';
 
@@ -10,22 +11,19 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(height: 160),
-              Image.asset('assets/cueLogo.png',
-                  height: 140), 
+              Image.asset('assets/cueLogo.png', height: 140),
               const SizedBox(height: 48),
-              const Text(
+              Text(
                 'Welcome to',
-                style: TextStyle(
-                  fontSize: 44,
-                  fontFamily: 'Lexend',
-                  ),
+                style: GoogleFonts.monomaniacOne(
+                  fontSize: 54,
+                  fontWeight: FontWeight.w500,
+                ),
                 textAlign: TextAlign.center,
               ),
               const Text(
@@ -53,8 +51,7 @@ class WelcomeScreen extends StatelessWidget {
                   Navigator.of(context).pushReplacementNamed("/signup");
                 },
               ),
-              const SizedBox(
-                  height: 100),
+              const SizedBox(height: 100),
               TextButton(
                 onPressed: () {
                   // to be handled later ( login with google OAuth )
