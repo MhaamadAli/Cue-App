@@ -43,7 +43,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/welcome");
+                    // this is not working whyyyyyy???!!!!!!!!
+                    Navigator.popAndPushNamed(context, "/welcome");
                   },
                   child: const Text(
                     'Skip',

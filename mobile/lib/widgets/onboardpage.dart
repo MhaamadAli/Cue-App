@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/widgets/main_button.dart';
 
 class OnboardPage extends StatelessWidget {
@@ -29,16 +30,20 @@ class OnboardPage extends StatelessWidget {
           const Spacer(),
           Text(
             text,
-            style: const TextStyle(
+            style: GoogleFonts.lexend(
               fontSize: 24,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
           Text(
             secondaryText,
-            style: const TextStyle(fontSize: 18, color: Colors.grey),
+            style: GoogleFonts.lexend(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+              color: Colors.grey,
+            ),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
