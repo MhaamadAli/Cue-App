@@ -67,6 +67,8 @@ flutter:
      - assets/cueLogo.png
      - assets/googleLogo.png
      - assets/profileAvatar.png
+     - assets/task.png
+     - assets/taskDone.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

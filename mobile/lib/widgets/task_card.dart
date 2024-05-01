@@ -8,12 +8,12 @@ class TaskCard extends StatelessWidget {
   final bool isChecked;
 
   const TaskCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.bannerColor,
     this.isChecked = false,
-  }) : super(key: key);
+  });
 
   String getShortDescription() {
     if (description.length > 40) {
