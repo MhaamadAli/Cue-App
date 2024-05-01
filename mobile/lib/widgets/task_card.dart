@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TaskCard extends StatelessWidget {
-  const TaskCard ({super.key});
+  final String title;
+  final String description;
+  final Color bannerColor;
+  final bool isChecked;
+
+  const TaskCard({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.bannerColor,
+    this.isChecked = false,
+  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +32,51 @@ class TaskCard extends StatelessWidget {
             blurRadius: 5,
             offset: const Offset(0, 3),
           ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 15,
+            height: 60,
+            decoration: BoxDecoration(
+              color: bannerColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.monomaniacOne(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 22,
+                  ),
+                ),
+                Text(
+                  description,
+                  style: GoogleFonts.monomaniacOne(
+                    fontWeight: FontWeight.w200,
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: 1),
+          Icon(
+            isChecked ? Icons.check_circle : Icons.check_circle_outline,
+            color: Colors.green,
+          ),
+          SizedBox(width: 10),
         ],
       ),
     );
