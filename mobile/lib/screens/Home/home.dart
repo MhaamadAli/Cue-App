@@ -22,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final List _pages = [
+  final List<Widget> _pages = [
     // home
-    HomeScreen(),
+    HomeScreenContent(),
     // tasks
     TasksScreen(),
     // assistant
@@ -37,9 +37,30 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: HomeScreenContent(),
-    ));
+    return Scaffold(
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.task_alt_sharp), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.keyboard_voice_outlined), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: ''),
+        ],
+        selectedItemColor: Color(0xFF07AB81),
+        unselectedItemColor: Colors.grey,
+        iconSize: 30,
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+      ),
+    );
   }
 }
