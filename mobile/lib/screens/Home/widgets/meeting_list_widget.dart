@@ -7,9 +7,10 @@ class MeetingListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screensize = MediaQuery.of(context).size;
     return Container(
-      width: 380,
-      height: 200,
+      width: screensize.width * 0.88,
+      height: screensize.height *0.23,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
