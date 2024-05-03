@@ -41,7 +41,9 @@ class TasksListWidget extends StatelessWidget {
                 ),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/tasks');
+                  },
                   child: Text(
                     'See All',
                     style: GoogleFonts.roboto(
@@ -65,7 +67,13 @@ class TasksListWidget extends StatelessWidget {
                 TaskCard(
                   title: 'Start with the Backend',
                   description: 'Task small Description',
-                  bannerColor: Colors.red,
+                  bannerColor: Colors.green,
+                  isChecked: true,
+                ),
+                TaskCard(
+                  title: 'Start with the Backend',
+                  description: 'Task small Description',
+                  bannerColor: Colors.orange,
                   isChecked: true,
                 ),
               ],
