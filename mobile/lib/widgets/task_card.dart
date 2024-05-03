@@ -77,11 +77,10 @@ class TaskCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 1),
-          Icon(
-            isChecked ? Icons.check_circle : Icons.check_circle_outline,
-            color: Colors.green,
-          ),
+          SizedBox(width: 10),
+          isChecked
+              ? Image.asset('assets/taskDone.png', height: 29, width: 29)
+              : Image.asset('assets/task.png', height: 30, width: 30),
           SizedBox(width: 10),
         ],
       ),
