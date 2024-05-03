@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
           "/tasks":(context) => TasksScreen(),
           "/map":(context) => MapScreen(),
           "/assistant":(context) => AssistantScreen()
-
         });
   }
 }

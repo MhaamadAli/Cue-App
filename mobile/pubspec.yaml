@@ -69,6 +69,11 @@ flutter:
      - assets/profileAvatar.png
      - assets/task.png
      - assets/taskDone.png
+     - assets/taskPage.png
+     - assets/schedulePage.png
+     - assets/assistant.png
+     - assets/location.png
+     - assets/house.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

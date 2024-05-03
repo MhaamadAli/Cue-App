@@ -44,14 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.task_alt_sharp), label: ''),
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.keyboard_voice_outlined), label: ''),
+              icon: Image.asset('assets/house.png', height: 29, width: 29),
+              label: 'home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: ''),
+              icon: Image.asset('assets/taskPage.png', height: 29, width: 29),
+              label: 'task'),
+          BottomNavigationBarItem(
+              icon: Image.asset('assets/assistant.png', height: 29, width: 29),
+              label: 'assistant'),
+          BottomNavigationBarItem(
+              icon:
+                  Image.asset('assets/schedulePage.png', height: 29, width: 29),
+              label: 'schedule'),
+          BottomNavigationBarItem(
+              icon: Image.asset('assets/location.png', height: 29, width: 29),
+              label: 'maps'),
         ],
         selectedItemColor: Color(0xFF07AB81),
         unselectedItemColor: Colors.grey,
