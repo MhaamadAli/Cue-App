@@ -10,40 +10,44 @@ class HomeScreenContent extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+          padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
           child: Column(
             children: [
-              Row(
-                children: [
-                  const CircleAvatar(
-                    backgroundImage: AssetImage('assets/profileAvatar.png'),
-                    radius: 25,
-                  ),
-                  const SizedBox(width: 10),
-                  const Expanded(
-                    child: Text(
-                      'Hello Mohammad!',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage('assets/profileAvatar.png'),
+                      radius: 25,
+                    ),
+                    const SizedBox(width: 10),
+                    const Expanded(
+                      child: Text(
+                        'Hello Mohammad!',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF07AB81),
-                      shape: BoxShape.circle,
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF07AB81),
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.notifications),
+                        iconSize: 25,
+                        color: Colors.white,
+                        onPressed: () {
+                          // to be done: notification popup
+                        },
+                      ),
                     ),
-                    child: IconButton(
-                      icon: const Icon(Icons.notifications),
-                      iconSize: 25,
-                      color: Colors.white,
-                      onPressed: () {
-                        // to be done: notification popup
-                      },
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(height: 30),
               // use list view instead
