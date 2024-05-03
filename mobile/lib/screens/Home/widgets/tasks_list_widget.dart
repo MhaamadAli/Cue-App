@@ -7,9 +7,10 @@ class TasksListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screensize = MediaQuery.of(context).size;
     return Container(
-      width: 380,
-      height: 450,
+      width: screensize.width * 0.9,
+      height: screensize.height * 0.46,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
       decoration: BoxDecoration(
