@@ -15,7 +15,7 @@ class TasksScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            HomeScreenContent();
+            Navigator.popAndPushNamed(context, '/home');
           },
         ),
         title: const Text('tasks', style: TextStyle(color: Colors.black)),
