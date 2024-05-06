@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  username      String         @unique
+  email         String
+  password_hash String
+  role          String?
+  tasks         Task[]
+  meetings      Meeting[]
+  feedbacks     Feedback[]
+  locations     Location[]
+  notifications Notification[]
+}
+
+model Task {
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String?
+  status        String
+  due_datetime  DateTime
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  location_tags Location? @relation(fields: [locationId], references: [id])
+  locationId    Int?
+}
+
+model Meeting {
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String?
+  start_datetime DateTime
+  end_datetime  DateTime
+  reminder_time DateTime?
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+}
+
+model Feedback {
+  id        Int       @id @default(autoincrement())
+  message   String
+  timestamp DateTime
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+}
+
+model Location {
+  id        Int       @id @default(autoincrement())
+  name      String
+  latitude  Float
+  longitude Float
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  tasks     Task[]
+}
+
+model Notification {
+  id        Int       @id @default(autoincrement())
+  message   String
+  createdAt DateTime  @default(now())
+  read      Boolean   @default(false)
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+}
