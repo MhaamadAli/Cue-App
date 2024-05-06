@@ -7,10 +7,20 @@ import { TasksModule } from './tasks/tasks.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { FeedbacksModule } from './feedbacks/feedbacks.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { PrismaService } from './prisma/prisma.service';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [UsersModule, MeetingsModule, TasksModule, NotificationsModule, FeedbacksModule, AuthenticationModule],
+  imports: [
+    UsersModule,
+    MeetingsModule,
+    TasksModule,
+    NotificationsModule,
+    FeedbacksModule,
+    AuthenticationModule,
+    PrismaModule,
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}
