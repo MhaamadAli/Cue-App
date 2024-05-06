@@ -12,7 +12,7 @@ model User {
   username      String         @unique
   email         String
   password_hash String
-  role          String?
+  role          Role @default(USER)
   tasks         Task[]
   meetings      Meeting[]
   feedbacks     Feedback[]
@@ -68,4 +68,10 @@ model Notification {
   read      Boolean   @default(false)
   user      User      @relation(fields: [userId], references: [id])
   userId    Int
+}
+
+
+enum Role {
+  USER
+  ADMIN
 }
