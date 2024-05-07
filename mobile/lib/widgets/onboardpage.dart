@@ -20,46 +20,48 @@ class OnboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Spacer(),
-          Image.asset(imagePath),
-          const Spacer(),
-          Text(
-            text,
-            style: GoogleFonts.lexend(
-              fontSize: 24,
-              fontWeight: FontWeight.w400,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Spacer(),
+            Image.asset(imagePath),
+            const Spacer(),
+            Text(
+              text,
+              style: GoogleFonts.lexend(
+                fontSize: 24,
+                fontWeight: FontWeight.w400,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            secondaryText,
-            style: GoogleFonts.lexend(
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-              color: Colors.grey,
+            const SizedBox(height: 16),
+            Text(
+              secondaryText,
+              style: GoogleFonts.lexend(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Colors.grey,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const Spacer(),
-          const Spacer(),
-          SizedBox(
-            width: double.infinity,
-            child: MainButton(
-              buttonText: buttonText,
-              buttonColor: Color(0xFF06D6A0),
-              onPressed: () {
-                onButtonPressed();
-              },
+            const Spacer(),
+            const Spacer(),
+            SizedBox(
+              width: double.infinity,
+              child: MainButton(
+                buttonText: buttonText,
+                buttonColor: const Color(0xFF06D6A0),
+                onPressed: () {
+                  onButtonPressed();
+                },
+              ),
             ),
-          ),
-          const Spacer(),
-        ],
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }
