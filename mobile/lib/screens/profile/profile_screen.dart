@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
-
+import 'package:mobile/screens/profile/feedback_button.dart';
+import 'package:mobile/screens/profile/feedback_dialog.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-  
+  void _showFeedbackDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const FeedbackDialog();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
+        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.green),
-          onPressed: () => Navigator.of(context).pop(),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.popAndPushNamed(context, '/home');
+          },
         ),
-        title: const Text('tasks', style: TextStyle(color: Colors.black)),
-        
+        title: const Text('Profile', style: TextStyle(color: Colors.black)),
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
@@ -26,24 +38,21 @@ class ProfileScreen extends StatelessWidget {
               backgroundColor: Colors.green,
               child: CircleAvatar(
                 radius: 45,
-                backgroundImage: AssetImage(
-                    'assets/profileAvatar.png'),
+                backgroundImage: AssetImage('assets/profileAvatar.png'),
               ),
             ),
             const SizedBox(height: 24),
             buildTextField(title: 'Full Name', value: 'Mohammad Ali Alawar'),
             buildTextField(title: 'Email', value: 'm.alialawar@gmail.com'),
             buildTextField(title: 'Gender', value: 'Male', isDropdown: true),
-            const SizedBox(height: 48),
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.feedback, color: Colors.white),
-              label: const Text('Drop us a feedback!'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                minimumSize: const Size(double.infinity, 50),
-                shape: const StadiumBorder(),
-              ),
+            Expanded(
+              child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: FeedbackButton(
+                    onPressed: () {
+                      _showFeedbackDialog(context);
+                    },
+                  )),
             ),
           ],
         ),
@@ -63,7 +72,8 @@ class ProfileScreen extends StatelessWidget {
         if (!isDropdown)
           TextField(
             controller: TextEditingController(text: value),
-            
+            readOnly:
+                true,
           )
         else
           Container(
