@@ -9,6 +9,7 @@ import 'package:mobile/screens/auth/signup_screen.dart';
 import 'package:mobile/screens/map/map_screen.dart';
 import 'package:mobile/screens/onboarding/welcome_screen.dart';
 import 'package:mobile/screens/onboarding/onboarding_screen.dart';
+import 'package:mobile/screens/profile/profile_screen.dart';
 import 'package:mobile/screens/schedule/schedule_screen.dart';
 import 'package:mobile/screens/splash_screen.dart';
 
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
           "/schedule": (context) => ScheduleScreen(),
           "/tasks":(context) => TasksScreen(),
           "/map":(context) => MapScreen(),
-          "/assistant":(context) => AssistantScreen()
+          "/assistant":(context) => AssistantScreen(),
+          "/profile":(context) => ProfileScreen()
         });
   }
 }
