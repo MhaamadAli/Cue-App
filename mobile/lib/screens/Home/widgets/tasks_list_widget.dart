@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/models/task_model.dart';
 import 'package:mobile/widgets/task_card.dart';
 
 class TasksListWidget extends StatelessWidget {
@@ -7,6 +8,21 @@ class TasksListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Task> tasks = [
+      Task(
+        id: 1,
+        title: 'Finish UI with Flutter',
+        description: 'You should finish the UI with Flutter before Saturday',
+        bannerColor: Colors.orange,
+      ),
+      Task(
+        id: 1,
+        title: 'Start with the Backend',
+        description: 'Task small Description',
+        bannerColor: Colors.green,
+        isChecked: true,
+      ),
+    ];
     final screensize = MediaQuery.of(context).size;
     return Container(
       width: screensize.width * 0.9,
@@ -55,28 +71,12 @@ class TasksListWidget extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: ListView(
-              children: const [
-                TaskCard(
-                  title: 'Finish UI with Flutter',
-                  description:
-                      'You should finish the UI with Flutter before Saturday',
-                  bannerColor: Colors.orange,
-                  isChecked: false,
-                ),
-                TaskCard(
-                  title: 'Start with the Backend',
-                  description: 'Task small Description',
-                  bannerColor: Colors.green,
-                  isChecked: true,
-                ),
-                TaskCard(
-                  title: 'Start with the Backend',
-                  description: 'Task small Description',
-                  bannerColor: Colors.orange,
-                  isChecked: true,
-                ),
-              ],
+            child: ListView.builder(
+              itemCount: tasks.length,
+              itemBuilder: (context, index) {
+                Task task = tasks[index];
+                return TaskCard(inputTask: task);
+              },
             ),
           ),
         ],
