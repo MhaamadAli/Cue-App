@@ -6,7 +6,7 @@ import { MeetingsModule } from './meetings/meetings.module';
 import { TasksModule } from './tasks/tasks.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { FeedbacksModule } from './feedbacks/feedbacks.module';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthModule } from './authentication/authentication.module';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
 
@@ -17,7 +17,7 @@ import { PrismaModule } from './prisma/prisma.module';
     TasksModule,
     NotificationsModule,
     FeedbacksModule,
-    AuthenticationModule,
+    AuthModule,
     PrismaModule,
   ],
   controllers: [AppController],
