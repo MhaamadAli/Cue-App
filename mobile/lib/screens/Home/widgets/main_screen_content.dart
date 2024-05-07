@@ -18,9 +18,12 @@ class HomeScreenContent extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                 child: Row(
                   children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage('assets/profileAvatar.png'),
-                      radius: 25,
+                    IconButton(
+                      icon: Image.asset('assets/profileAvatar.png',
+                          height: 55, width: 55),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/profile");
+                      },
                     ),
                     const SizedBox(width: 10),
                     const Expanded(
