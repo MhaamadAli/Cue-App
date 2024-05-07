@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/screens/Home/widgets/main_screen_content.dart';
 import 'package:mobile/widgets/task_card.dart';
 
 class TasksScreen extends StatelessWidget {
