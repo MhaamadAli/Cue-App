@@ -28,4 +28,16 @@ export class AuthService {
       return null;
     }
   }
+
+  async create(createUserDto: Prisma.UserCreateInput) {
+    const hashedPassword = await bcrypt.hash(createUserDto.password_hash, 10);
+    const userWithHashedPassword = {
+      ...createUserDto,
+      password_hash: hashedPassword,
+    };
+
+    return this.prismaService.user.create({
+      data: userWithHashedPassword,
+    });
+  }
 }
