@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/models/task_model.dart';
 import 'package:mobile/widgets/task_card.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -6,6 +7,21 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Task> tasks = [
+      Task(
+          id: 1,
+          title: 'Finish UI with Flutter',
+          description: 'You should finish the UI with Flutter before Saturday',
+          bannerColor: Colors.orange,
+          isChecked: true
+          ),
+      Task(
+          id: 1,
+          title: 'Start with the Backend',
+          description: 'Task small Description',
+          bannerColor: Colors.green),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,47 +40,12 @@ class TasksScreen extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: ListView(
-                children: const [
-                  TaskCard(
-                    title: 'Finish UI with Flutter',
-                    description:
-                        'You should finish the UI with Flutter before Saturday',
-                    bannerColor: Colors.orange,
-                    isChecked: false,
-                  ),
-                  TaskCard(
-                    title: 'Start with the Backend',
-                    description: 'Task small Description',
-                    bannerColor: Colors.green,
-                    isChecked: false,
-                  ),
-                  TaskCard(
-                    title: 'Start with the Backend',
-                    description: 'Task small Description',
-                    bannerColor: Colors.orange,
-                    isChecked: true,
-                  ),
-                  TaskCard(
-                    title: 'Start with the Backend',
-                    description: 'Task small Description',
-                    bannerColor: Colors.red,
-                    isChecked: true,
-                  ),
-                  TaskCard(
-                    title: 'Start with the Backend',
-                    description: 'Task small Description',
-                    bannerColor: Colors.red,
-                    isChecked: true,
-                  ),
-                  TaskCard(
-                    title: 'Finish UI with Flutter',
-                    description:
-                        'You should finish the UI with Flutter before Saturday',
-                    bannerColor: Colors.orange,
-                    isChecked: true,
-                  ),
-                ],
+              child: ListView.builder(
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  Task task = tasks[index];
+                  return TaskCard(inputTask: task);
+                },
               ),
             ),
           ],
