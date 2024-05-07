@@ -5,11 +5,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class UsersService {
   constructor(private readonly prismaService: PrismaService) {}
-  async create(createUserDto: Prisma.UserCreateInput) {
-    return this.prismaService.user.create({
-      data: createUserDto,
-    });
-  }
 
   async findAll() {
     return this.prismaService.user.findMany({});
@@ -23,9 +18,9 @@ export class UsersService {
       include: {
         tasks: true,
         meetings: true,
-        locations: true
-      }
-    })
+        locations: true,
+      },
+    });
   }
 
   async update(id: number, updateUserDto: Prisma.UserUpdateInput) {
@@ -41,7 +36,7 @@ export class UsersService {
     return this.prismaService.user.delete({
       where: {
         id,
-      }
+      },
     });
   }
 }
