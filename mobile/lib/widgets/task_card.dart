@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/models/task_model.dart';
 
 class TaskCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final Color bannerColor;
-  final bool isChecked;
+  final Task inputTask;
 
   const TaskCard({
     super.key,
-    required this.title,
-    required this.description,
-    required this.bannerColor,
-    this.isChecked = false,
+    required this.inputTask,
   });
 
   String getShortDescription() {
-    if (description.length > 40) {
-      return '${description.substring(0, 40)}...';
+    if (inputTask.description.length > 40) {
+      return '${inputTask.description.substring(0, 40)}...';
     }
-    return description;
+    return inputTask.description;
   }
 
   @override
@@ -46,7 +41,7 @@ class TaskCard extends StatelessWidget {
             width: 15,
             height: 60,
             decoration: BoxDecoration(
-              color: bannerColor,
+              color: inputTask.bannerColor,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 bottomLeft: Radius.circular(10),
@@ -60,7 +55,7 @@ class TaskCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  title,
+                  inputTask.title,
                   style: GoogleFonts.monomaniacOne(
                     fontWeight: FontWeight.w500,
                     fontSize: 22,
@@ -78,7 +73,7 @@ class TaskCard extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10),
-          isChecked
+          inputTask.isChecked
               ? Image.asset('assets/taskDone.png', height: 29, width: 29)
               : Image.asset('assets/task.png', height: 30, width: 30),
           SizedBox(width: 10),
