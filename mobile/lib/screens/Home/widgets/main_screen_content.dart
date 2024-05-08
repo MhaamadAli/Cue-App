@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/models/meeting_model.dart';
+import 'package:mobile/screens/Home/widgets/dialog_manager.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';
 import 'package:mobile/screens/Home/widgets/tasks_list_widget.dart';
 
@@ -79,7 +80,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                         iconSize: 25,
                         color: Colors.white,
                         onPressed: () {
-                          // Notification popup logic
+                          showNotificationDialog(context);
                         },
                       ),
                     ),
@@ -106,7 +107,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   ),
                 ),
               ),
-              
               _buildPageIndicator(),
               const SizedBox(height: 10),
               const TasksListWidget(),
@@ -126,9 +126,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
           children: List<Widget>.generate(_meetings.length, (int index) {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              width: _currentPageNotifier.value == index
-                  ? 80.0
-                  : 15.0,
+              width: _currentPageNotifier.value == index ? 80.0 : 15.0,
               height: 7.0,
               margin: const EdgeInsets.symmetric(horizontal: 4.0),
               decoration: BoxDecoration(
@@ -137,8 +135,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     : Colors.grey.shade300,
                 borderRadius: _currentPageNotifier.value == index
                     ? BorderRadius.circular(4.0)
-                    : BorderRadius.circular(
-                        4.0),
+                    : BorderRadius.circular(4.0),
               ),
             );
           }),
