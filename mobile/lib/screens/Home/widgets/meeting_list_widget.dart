@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/models/meeting_model.dart';
 
 class MeetingListCard extends StatelessWidget {
-  const MeetingListCard({super.key});
+  final Meeting inputMeeting;
+
+  const MeetingListCard({
+    super.key,
+    required this.inputMeeting,
+  });
 
   @override
   Widget build(BuildContext context) {
     final screensize = MediaQuery.of(context).size;
     return Container(
       width: screensize.width * 0.88,
-      height: screensize.height *0.23,
+      height: screensize.height * 0.23,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -29,17 +34,17 @@ class MeetingListCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Meeting Title here',
+            inputMeeting.title,
             style: GoogleFonts.monomaniacOne(
               color: Colors.white,
               fontSize: 32,
               fontWeight: FontWeight.w400,
             ),
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 16),
             child: Text(
-              'Description here,Description here,Description here,Description here',
+              inputMeeting.description,
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontSize: 16,
@@ -54,10 +59,11 @@ class MeetingListCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.calendar_month_outlined, size: 20, color: Colors.white),
+                  const Icon(Icons.calendar_month_outlined,
+                      size: 20, color: Colors.white),
                   const SizedBox(width: 4),
                   Text(
-                    '20/04/2024',
+                    inputMeeting.getFormattedDate(),
                     style: GoogleFonts.lexend(
                       color: Colors.white,
                       fontSize: 16,
@@ -67,10 +73,11 @@ class MeetingListCard extends StatelessWidget {
               ),
               Row(children: [
                 const SizedBox(width: 30),
-                const Icon(Icons.access_time_outlined, size: 20, color: Colors.white),
+                const Icon(Icons.access_time_outlined,
+                    size: 20, color: Colors.white),
                 const SizedBox(width: 4),
                 Text(
-                  '11:00 AM',
+                  inputMeeting.getFormattedTime(),
                   style: GoogleFonts.lexend(
                     color: Colors.white,
                     fontSize: 16,
