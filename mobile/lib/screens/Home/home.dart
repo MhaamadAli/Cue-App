@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
 import 'package:mobile/screens/Home/widgets/main_screen_content.dart';
 import 'package:mobile/screens/Tasks/tasks_screen.dart';
@@ -22,15 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<Widget> _pages = [
-    // home
     HomeScreenContent(),
-    // tasks
     TasksScreen(),
-    // assistant
     AssistantScreen(),
-    // schedule
     ScheduleScreen(),
-    // map
     MapScreen()
   ];
 
@@ -46,20 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _navigateBottomBar,
         items: [
           BottomNavigationBarItem(
-              icon: Image.asset('assets/house.png', height: 29, width: 29),
+              icon: SvgPicture.asset('assets/houseGrey.svg',
+                  height: 29, width: 29, color: _selectedIndex == 0 ? Color(0xFF07AB81) : Colors.grey),
               label: 'home'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/taskPage.png', height: 29, width: 29),
+              icon: SvgPicture.asset('assets/taskGrey.svg',
+                  height: 29, width: 29, color: _selectedIndex == 1 ? Color(0xFF07AB81) : Colors.grey),
               label: 'task'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/assistant.png', height: 29, width: 29),
+              icon: SvgPicture.asset('assets/assistantGrey.svg',
+                  height: 29, width: 29, color: _selectedIndex == 2 ? Color(0xFF07AB81) : Colors.grey),
               label: 'assistant'),
           BottomNavigationBarItem(
-              icon:
-                  Image.asset('assets/schedulePage.png', height: 29, width: 29),
+              icon: SvgPicture.asset('assets/calendarGrey.svg',
+                  height: 29, width: 29, color: _selectedIndex == 3 ? Color(0xFF07AB81) : Colors.grey),
               label: 'schedule'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/location.png', height: 29, width: 29),
+              icon: SvgPicture.asset('assets/mapsGrey.svg',
+                  height: 29, width: 29, color: _selectedIndex == 4 ? Color(0xFF07AB81) : Colors.grey),
               label: 'maps'),
         ],
         selectedItemColor: Color(0xFF07AB81),
