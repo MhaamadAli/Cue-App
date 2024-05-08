@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/models/meeting_model.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';
 import 'package:mobile/screens/Home/widgets/tasks_list_widget.dart';
 
@@ -7,6 +8,27 @@ class HomeScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Meeting> meetings = [
+      Meeting(
+        id: 1,
+        title: 'Finish UI - Nour',
+        description: 'You should finish the UI with Flutter before Saturday',
+        duedatetime: DateTime.now(),
+      ),
+      Meeting(
+        id: 2,
+        title: 'Flutter - Taha',
+        description: 'meeting with taha to have a code review',
+        duedatetime: DateTime.now(),
+      ),
+      Meeting(
+        id: 3,
+        title: 'Backend - Chris',
+        description: 'meeting with Chris to reivew backend code',
+        duedatetime: DateTime.now(),
+      ),
+    ];
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -14,13 +36,11 @@ class HomeScreenContent extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   children: [
                     IconButton(
-                      icon: Image.asset('assets/profileAvatar.png',
-                          height: 55, width: 55),
+                      icon: Image.asset('assets/profileAvatar.png', height: 55, width: 55),
                       onPressed: () {
                         Navigator.pushNamed(context, "/profile");
                       },
@@ -29,10 +49,7 @@ class HomeScreenContent extends StatelessWidget {
                     const Expanded(
                       child: Text(
                         'Hello Mohammad!',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -45,28 +62,25 @@ class HomeScreenContent extends StatelessWidget {
                         iconSize: 25,
                         color: Colors.white,
                         onPressed: () {
-                          // to be done: notification popup
+                          // Notification popup logic
                         },
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 30),
-              // use list view instead
-              // listview.builder
-              //pass scroll behavior ( snapping)
-              const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MeetingListCard(),
-                    SizedBox(width: 20),
-                    MeetingListCard(),
-                    SizedBox(width: 20),
-                    MeetingListCard(),
-                  ],
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 210,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: meetings.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: index < meetings.length - 1 ? 20 : 0),
+                      child: MeetingListCard(inputMeeting: meetings[index]),
+                    );
+                  },
                 ),
               ),
               const TasksListWidget(),
