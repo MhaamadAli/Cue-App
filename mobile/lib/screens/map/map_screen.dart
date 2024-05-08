@@ -80,6 +80,16 @@ class _MapScreenState extends State<MapScreen> {
           MarkerLayer(markers: markers),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_currentPosition != null) {
+            _mapController.move(_currentPosition!, 15);
+          } else {
+            _determinePosition();
+          }
+        },
+        child: const Icon(Icons.my_location),
+      ),
     );
   }
 }
