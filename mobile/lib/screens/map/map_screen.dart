@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -12,6 +13,12 @@ class _MapScreenState extends State<MapScreen> {
   List<Marker> markers = [];
   LatLng? _currentPosition;
 
+  @override
+  void initState() {
+    super.initState();
+    _determinePosition();
+  }
+
   void _addMarker(LatLng pos) {
     final marker = Marker(
       width: 50.0,
@@ -21,6 +28,37 @@ class _MapScreenState extends State<MapScreen> {
     );
     setState(() {
       markers.add(marker);
+    });
+  }
+
+  Future<void> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      await Geolocator.openLocationSettings();
+      return;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return;
+    }
+
+    Position position = await Geolocator.getCurrentPosition();
+    LatLng currentLatLng = LatLng(position.latitude, position.longitude);
+    setState(() {
+      _currentPosition = currentLatLng;
+      _mapController.move(_currentPosition!, 15);
+      _addMarker(_currentPosition!);
     });
   }
 
