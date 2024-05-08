@@ -18,13 +18,13 @@ class HomeScreenContent extends StatelessWidget {
       Meeting(
         id: 2,
         title: 'Flutter - Taha',
-        description: 'meeting with taha to have a code review',
+        description: 'Meeting with Taha to have a code review',
         duedatetime: DateTime.now(),
       ),
       Meeting(
         id: 3,
         title: 'Backend - Chris',
-        description: 'meeting with Chris to reivew backend code',
+        description: 'Meeting with Chris to review backend code',
         duedatetime: DateTime.now(),
       ),
     ];
@@ -40,7 +40,8 @@ class HomeScreenContent extends StatelessWidget {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: Image.asset('assets/profileAvatar.png', height: 55, width: 55),
+                      icon: Image.asset('assets/profileAvatar.png',
+                          height: 55, width: 55),
                       onPressed: () {
                         Navigator.pushNamed(context, "/profile");
                       },
@@ -49,7 +50,8 @@ class HomeScreenContent extends StatelessWidget {
                     const Expanded(
                       child: Text(
                         'Hello Mohammad!',
-                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -69,18 +71,23 @@ class HomeScreenContent extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               SizedBox(
-                height: 210,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: meetings.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(right: index < meetings.length - 1 ? 20 : 0),
-                      child: MeetingListCard(inputMeeting: meetings[index]),
-                    );
-                  },
+                height: 220,
+                child: Scrollbar(
+                  child: PageView.builder(
+                    controller: PageController(
+                        viewportFraction:
+                            1),
+                    itemCount: meetings.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                            right: index < meetings.length - 1 ? 5 : 0),
+                        child: MeetingListCard(inputMeeting: meetings[index]),
+                      );
+                    },
+                  ),
                 ),
               ),
               const TasksListWidget(),
