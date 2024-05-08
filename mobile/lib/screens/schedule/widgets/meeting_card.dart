@@ -16,6 +16,7 @@ class MeetingCard extends StatelessWidget {
     return Container(
       width: screensize.width * 0.90,
       height: screensize.height * 0.07,
+      margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       decoration: BoxDecoration(
         color: Color(0xFFF3D3AA),

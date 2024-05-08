@@ -16,7 +16,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       id: 1,
       title: 'Finish UI - Nour',
       description: 'You should finish the UI with Flutter before Saturday',
-      duedatetime: DateTime.now(),
+      duedatetime: DateTime.now()
+          .add(Duration(days: 1)),
     ),
     Meeting(
       id: 2,
@@ -28,12 +29,27 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       id: 3,
       title: 'Backend - Chris',
       description: 'Meeting with Chris to review backend code',
-      duedatetime: DateTime.now(),
+      duedatetime: DateTime.now()
+          .subtract(Duration(days: 1)),
     ),
   ];
 
+  bool isSameDate(DateTime date1, DateTime date2) {
+    return date1.year == date2.year &&
+        date1.month == date2.month &&
+        date1.day == date2.day;
+  }
+
+  List<Meeting> getMeetingsForSelectedDay() {
+    return _meetings
+        .where((meeting) => isSameDate(meeting.duedatetime, _selectedDay))
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<Meeting> dailyMeetings = getMeetingsForSelectedDay();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -98,10 +114,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 40,
+            const SizedBox(height: 40),
+            Expanded(
+              child: ListView.builder(
+                itemCount: dailyMeetings.length,
+                itemBuilder: (context, index) {
+                  return MeetingCard(inputMeeting: dailyMeetings[index]);
+                },
+              ),
             ),
-            MeetingCard(inputMeeting: _meetings[1])
           ],
         ),
       ),
