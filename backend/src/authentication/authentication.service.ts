@@ -36,9 +36,22 @@ export class AuthService {
       password_hash: hashedPassword,
     };
 
-    return this.prismaService.user.create({
+    const user = await this.prismaService.user.create({
       data: userWithHashedPassword,
     });
+
+    const payload = { email: user.email, sub: user.id };
+    const access_token = this.jwtService.sign(payload);
+
+    return {
+      access_token: access_token,
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+      },
+    };
   }
 
   async login(user: any) {
