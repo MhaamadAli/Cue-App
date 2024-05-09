@@ -7,4 +7,10 @@ class UserProvider with ChangeNotifier {
   final AUTHService _authService = AUTHService();
 
   User? get user => _user;
+
+  Future<void> login(String email, String password) async {
+    final response = await _authService.login(email, password);
+    _user = User.fromJson(response);
+    notifyListeners();
+  }
 }
