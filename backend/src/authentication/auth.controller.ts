@@ -5,6 +5,7 @@ import {
   HttpCode,
   HttpStatus,
   UnauthorizedException,
+  HttpException,
 } from '@nestjs/common';
 import { AuthService } from './authentication.service';
 import { Prisma } from '@prisma/client';
@@ -15,8 +16,12 @@ export class AuthController {
 
   @Post('signup')
   @HttpCode(HttpStatus.OK)
-  create(@Body() createUserDto: Prisma.UserCreateInput) {
-    return this.authService.create(createUserDto);
+  async create(@Body() createUserDto: Prisma.UserCreateInput) {
+    const result = await this.authService.create(createUserDto);
+    if (!result) {
+      throw new HttpException('Signup failed', HttpStatus.BAD_REQUEST);
+    }
+    return result;
   }
 
   @Post('login')
