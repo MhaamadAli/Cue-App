@@ -1,8 +1,6 @@
-// main.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart'; // Import provider package
+import 'package:provider/provider.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
 import 'package:mobile/screens/Home/home.dart';
 import 'package:mobile/screens/Tasks/tasks_screen.dart';
@@ -17,7 +15,6 @@ import 'package:mobile/screens/splash_screen.dart';
 import 'package:mobile/provider/user_provider.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
