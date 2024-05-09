@@ -23,4 +23,27 @@ class AUTHService {
       throw Exception('Failed to login: ${response.body}');
     }
   }
+
+  Future<Map<String, dynamic>> signup(String username, String email, String password) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/auth/signup'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'username': username,
+        'email': email,
+        'password_hash': password,
+      }),
+    );
+
+    print('Status Code: ${response.statusCode}');
+    print('Response Body: ${response.body}');
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed to signup with status code ${response.statusCode}: ${response.body}');
+    }
+  }
 }
