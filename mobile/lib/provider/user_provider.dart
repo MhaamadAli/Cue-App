@@ -13,8 +13,7 @@ class UserProvider with ChangeNotifier {
   Future<void> login(String email, String password) async {
     try {
       final response = await _apiService.login(email, password);
-      await _secureStorage
-          .storeToken(response['access_token']); // Store the token securely
+      await _secureStorage.storeToken(response['access_token']);
       _user = User.fromJson(response);
       notifyListeners();
     } catch (e) {
@@ -23,8 +22,20 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  Future<void> signup(String username, String email, String password) async {
+    try {
+      final response = await _apiService.signup(username, email, password);
+      await _secureStorage.storeToken(response['access_token']);
+      _user = User.fromJson(response);
+      notifyListeners();
+    } catch (e) {
+      print('Error during signup: $e');
+      throw Exception('Signup Failed: $e');
+    }
+  }
+
   Future<void> logout() async {
-    await _secureStorage.deleteToken(); // Securely delete the token
+    await _secureStorage.deleteToken();
     _user = null;
     notifyListeners();
   }
