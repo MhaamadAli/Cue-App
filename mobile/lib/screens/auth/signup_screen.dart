@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/widgets/main_button.dart';
 import 'package:mobile/widgets/text_field.dart';
+import 'package:provider/provider.dart';
+import 'package:mobile/provider/user_provider.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
-
-  void handleSignup() {
-    // toDO: handle signup
-  }
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
@@ -64,7 +62,7 @@ class SignupScreen extends StatelessWidget {
               MyTextField(
                 controller: emailController,
                 hintText: 'example@gmail.com',
-                obscureText: true,
+                obscureText: false,
               ),
               const SizedBox(height: 10),
               const Text(
@@ -83,7 +81,7 @@ class SignupScreen extends StatelessWidget {
               MainButton(
                   buttonColor: const Color(0xFF06D6A0),
                   buttonText: 'Sign up',
-                  onPressed: handleSignup),
+                  onPressed: () => handleSignup(context)),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -126,5 +124,19 @@ class SignupScreen extends StatelessWidget {
         )),
       ),
     );
+  }
+
+  void handleSignup(BuildContext context) {
+    final username = usernameController.text.trim();
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    Provider.of<UserProvider>(context, listen: false)
+        .signup(username, email, password)
+        .then((_) {
+      Navigator.pushReplacementNamed(context, "/home");
+    }).catchError((error) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Signup failed: $error')));
+    });
   }
 }
