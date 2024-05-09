@@ -9,8 +9,14 @@ class UserProvider with ChangeNotifier {
   User? get user => _user;
 
   Future<void> login(String email, String password) async {
-    final response = await _authService.login(email, password);
-    _user = User.fromJson(response);
-    notifyListeners();
+    try {
+      final response = await _authService.login(email, password);
+      print('API Response: $response');
+      _user = User.fromJson(response);
+      notifyListeners();
+    } catch (e) {
+      print('Error during login: $e');
+      throw Exception('Login Failed: $e');
+    }
   }
 }
