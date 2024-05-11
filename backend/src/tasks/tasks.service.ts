@@ -6,15 +6,18 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class TasksService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  
   async create(createTaskDto: Prisma.TaskCreateInput) {
     return this.prismaService.task.create({
       data: createTaskDto,
     });
   }
 
-  async findAll() {
-    return this.prismaService.task.findMany({});
+  async findAll(userId: number) {
+    return this.prismaService.task.findMany({
+      where: {
+        userId,
+      },
+    });
   }
 
   async findOne(id: number) {
