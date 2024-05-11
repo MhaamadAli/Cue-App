@@ -20,6 +20,15 @@ export class TasksService {
     });
   }
 
+  async getNotDone(userId: number) {
+    return this.prismaService.task.findMany({
+      where: {
+        userId,
+        isChecked: false
+      }
+    })
+  }
+
   async findOne(id: number) {
     return this.prismaService.task.findUnique({
       where: {
