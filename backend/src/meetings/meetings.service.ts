@@ -11,8 +11,12 @@ export class MeetingsService {
     });
   }
 
-  async findAll() {
-    return this.prismaService.meeting.findMany({});
+  async findAll(userId: number) {
+    return this.prismaService.meeting.findMany({
+      where: {
+        userId,
+      }
+    });
   }
 
   async findOne(id: number) {
