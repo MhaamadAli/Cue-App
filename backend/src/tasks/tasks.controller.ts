@@ -30,17 +30,15 @@ export class TasksController {
     return this.tasksService.findAll(userId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tasksService.findOne(+id);
-  }
-
   @Patch(':id')
+  @UseGuards(JwtAuthGuard)
   update(
+    @Req() req: Request,
     @Param('id') id: string,
     @Body() updateTaskDto: Prisma.TaskUpdateInput,
   ) {
-    return this.tasksService.update(+id, updateTaskDto);
+    const userId = req.user['userId'];
+    return this.tasksService.update(userId,+ id, updateTaskDto);
   }
 
   @Delete(':id')
