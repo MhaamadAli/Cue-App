@@ -36,8 +36,7 @@ model Meeting {
   id            Int       @id @default(autoincrement())
   title         String
   description   String?
-  start_datetime DateTime
-  end_datetime  DateTime
+  date DateTime
   reminder_time DateTime?
   user          User      @relation(fields: [userId], references: [id])
   userId        Int
