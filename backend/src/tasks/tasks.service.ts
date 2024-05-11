@@ -28,9 +28,10 @@ export class TasksService {
     });
   }
 
-  async update(id: number, updateTaskDto: Prisma.TaskUpdateInput) {
+  async update(userId:number,id: number, updateTaskDto: Prisma.TaskUpdateInput) {
     return this.prismaService.task.update({
       where: {
+        userId,
         id,
       },
       data: updateTaskDto,
