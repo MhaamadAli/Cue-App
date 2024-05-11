@@ -5,6 +5,8 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class TasksService {
   constructor(private readonly prismaService: PrismaService) {}
+
+  
   async create(createTaskDto: Prisma.TaskCreateInput) {
     return this.prismaService.task.create({
       data: createTaskDto,

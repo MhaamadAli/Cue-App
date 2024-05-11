@@ -7,10 +7,14 @@ import {
 } from '@nestjs/common';
 import { ChatGptService } from './openai.service';
 import { Message } from './dto/message.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Controller('openai')
 export class OpenAIController {
-  constructor(private readonly chatGptService: ChatGptService) {}
+  constructor(
+    private readonly chatGptService: ChatGptService,
+    private readonly prismaService: PrismaService,
+  ) {}
 
   @Post('chat')
   async getChatResponse(@Body() body: { prompt: string; messages: Message[] }) {
@@ -19,7 +23,18 @@ export class OpenAIController {
         body.prompt,
         body.messages,
       );
-      return { response: JSON.parse(response.object.description) };
+      let JSONTask = { response: JSON.parse(response.object.description) };
+      if (JSONTask.response.type == 'task') {
+        const taskCreationResponse = await this.prismaService.task.create({
+          data: {
+            title: JSONTask.response.object.title,
+            description: JSONTask.response.object.description,
+            status: "TODO",
+            userId: 3
+          },
+        });
+        return taskCreationResponse;
+      }
     } catch (error) {
       throw new HttpException(
         'Service unavailable',
