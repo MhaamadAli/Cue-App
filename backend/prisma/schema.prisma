@@ -24,11 +24,11 @@ model Task {
   id            Int       @id @default(autoincrement())
   title         String
   description   String?
-  status        String
-  due_datetime  DateTime?
-  user          User      @relation(fields: [userId], references: [id])
+  isChecked     Boolean       @default(false)
+  bannerColor   BannerColor   @default(ORANGE)
+  user          User          @relation(fields: [userId], references: [id])
   userId        Int
-  location_tags Location? @relation(fields: [locationId], references: [id])
+  location_tags Location?     @relation(fields: [locationId], references: [id])
   locationId    Int?
 }
 
@@ -36,9 +36,9 @@ model Meeting {
   id            Int       @id @default(autoincrement())
   title         String
   description   String?
-  date DateTime
+  date          DateTime
   reminder_time DateTime?
-  user          User      @relation(fields: [userId], references: [id])
+  user          User         @relation(fields: [userId], references: [id])
   userId        Int
 }
 
@@ -73,4 +73,10 @@ model Notification {
 enum Role {
   USER
   ADMIN
+}
+
+enum BannerColor {
+  RED
+  ORANGE
+  GREEN
 }
