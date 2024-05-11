@@ -23,21 +23,33 @@ export class OpenAIController {
         body.prompt,
         body.messages,
       );
-      let JSONTask = { response: JSON.parse(response.object.description) };
-      if (JSONTask.response.type == 'task') {
+      let jsonObject = { response: JSON.parse(response.object.description) };
+      if (jsonObject.response.type == 'task') {
         const taskCreationResponse = await this.prismaService.task.create({
           data: {
-            title: JSONTask.response.object.title,
-            description: JSONTask.response.object.description,
-            status: "TODO",
-            userId: 3
+            title: jsonObject.response.object.title,
+            description: jsonObject.response.object.description,
+            status: 'TODO',
+            userId: 3,
           },
         });
         return taskCreationResponse;
+      } else if (jsonObject.response.type == 'meeting') {
+        const meetingCreationResponse = await this.prismaService.meeting.create(
+          {
+            data: {
+              title: jsonObject.response.title,
+              description: jsonObject.response.description,
+              date: new Date().toISOString(),
+              userId: 3,
+            },
+          },
+        );
+        return meetingCreationResponse;
       }
     } catch (error) {
       throw new HttpException(
-        'Service unavailable',
+        `Service unavailable: ${error.message}`,
         HttpStatus.SERVICE_UNAVAILABLE,
       );
     }
