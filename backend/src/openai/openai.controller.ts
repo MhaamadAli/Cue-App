@@ -29,7 +29,8 @@ export class OpenAIController {
           data: {
             title: jsonObject.response.object.title,
             description: jsonObject.response.object.description,
-            status: 'TODO',
+            isChecked: false,
+            bannerColor: 'ORANGE',
             userId: 3,
           },
         });
