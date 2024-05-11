@@ -35,26 +35,29 @@ export class ChatGptService {
           temperature: 0.5,
           max_tokens: 1000,
         });
-
+        
       const choice = completion.choices[0];
       if (!choice.message) {
         return { error: 'No response from GPT-3' };
       }
       const content = choice.message.content;
-
+      let type = 'unknown';
       if (
         content.toLowerCase().includes('reminder') ||
         content.toLowerCase().includes('task')
       ) {
-        return {
-          type: 'task',
-          object: {
-            title: prompt,
-            description: content,
-          },
-        };
+        type = 'task';
+      } else if (content.toLowerCase().includes('meeting')) {
+        type = 'meeting';
       }
-      return { error: 'Response not relevant to tasks' };
+
+      return {
+        type: type,
+        object: {
+          title: prompt,
+          description: content,
+        },
+      };
     } catch (e) {
       console.error(e);
       throw new ServiceUnavailableException('Failed request to ChatGPT');
