@@ -9,6 +9,7 @@ import { FeedbacksModule } from './feedbacks/feedbacks.module';
 import { AuthModule } from './authentication/authentication.module';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
+import { OpenAIModule } from './openai/openai.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PrismaModule } from './prisma/prisma.module';
     FeedbacksModule,
     AuthModule,
     PrismaModule,
+    OpenAIModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
