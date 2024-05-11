@@ -37,7 +37,6 @@ model Meeting {
   title         String
   description   String?
   date          DateTime
-  reminder_time DateTime?
   user          User         @relation(fields: [userId], references: [id])
   userId        Int
 }
