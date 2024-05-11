@@ -1,6 +1,11 @@
-import { Controller, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { ChatGptService } from './openai.service';
-import { Post, Body } from '@nestjs/common';
 import { Message } from './dto/message.dto';
 
 @Controller('openai')
@@ -9,10 +14,17 @@ export class OpenAIController {
 
   @Post('chat')
   async getChatResponse(@Body() body: { prompt: string; messages: Message[] }) {
-    const response = await this.chatGptService.chatGptRequest(
-      body.prompt,
-      body.messages,
-    );
-    return { response };
+    try {
+      const response = await this.chatGptService.chatGptRequest(
+        body.prompt,
+        body.messages,
+      );
+      return { response: JSON.parse(response.object.description) };
+    } catch (error) {
+      throw new HttpException(
+        'Service unavailable',
+        HttpStatus.SERVICE_UNAVAILABLE,
+      );
+    }
   }
 }
