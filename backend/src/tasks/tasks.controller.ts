@@ -1,6 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { Prisma } from '@prisma/client';
+import { JwtAuthGuard } from 'src/authentication/auth.guard';
+import { Request } from 'express';
 
 @Controller('tasks')
 export class TasksController {
@@ -12,8 +24,10 @@ export class TasksController {
   }
 
   @Get()
-  findAll() {
-    return this.tasksService.findAll();
+  @UseGuards(JwtAuthGuard)
+  findAll(@Req() req: Request) {
+    const userId = req.user['userId'];
+    return this.tasksService.findAll(userId);
   }
 
   @Get(':id')
@@ -22,7 +36,10 @@ export class TasksController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTaskDto: Prisma.TaskUpdateInput) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTaskDto: Prisma.TaskUpdateInput,
+  ) {
     return this.tasksService.update(+id, updateTaskDto);
   }
 
