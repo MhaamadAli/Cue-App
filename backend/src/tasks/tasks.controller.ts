@@ -30,6 +30,13 @@ export class TasksController {
     return this.tasksService.findAll(userId);
   }
 
+  @Get('todo')
+  @UseGuards(JwtAuthGuard)
+  getNotDone(@Req() req: Request) {
+    const userId = req.user['userID'];
+    return this.tasksService.getNotDone(userId);
+  }
+
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
   update(
