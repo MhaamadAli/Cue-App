@@ -24,10 +24,14 @@ class TasksProvider with ChangeNotifier {
 
   Future<void> updateTaskStatus(int taskId) async {
     Task? updatedTask = await _taskService.markTaskAsDone(taskId);
-
-    int index = _allTasks.indexWhere((task) => task.id == taskId);
-
-    _allTasks[index] = updatedTask;
-    notifyListeners();
+    if (updatedTask != null) {
+      int index = _allTasks.indexWhere((task) => task.id == taskId);
+      if (index != -1) {
+        _allTasks[index] = updatedTask;
+        notifyListeners();
+      }
+    } else {
+      throw Exception('failed to load updated task, TaskProvider');
+    }
   }
 }
