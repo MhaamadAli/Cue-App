@@ -8,6 +8,7 @@ export class MeetingsController {
   constructor(private readonly meetingsService: MeetingsService) {}
 
   @Post()
+  @UseGuards(JwtAuthGuard)
   create(@Body() createMeetingDto: Prisma.MeetingCreateInput) {
     return this.meetingsService.create(createMeetingDto);
   }
@@ -20,16 +21,20 @@ export class MeetingsController {
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string) {
     return this.meetingsService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseGuards(JwtAuthGuard)
   update(
+    @Req() req: Request,
     @Param('id') id: string,
     @Body() updateMeetingDto: Prisma.MeetingUpdateInput,
   ) {
-    return this.meetingsService.update(+id, updateMeetingDto);
+    const userId = req.user['userId'];
+    return this.meetingsService.update(userId, +id, updateMeetingDto);
   }
 
   @Delete(':id')
