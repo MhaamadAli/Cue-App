@@ -16,7 +16,11 @@ class MeetingService {
       headers: {'Authorization': 'Bearer $authToken'},
     );
 
-    List<dynamic> meetingsJson = json.decode(response.body);
-    return meetingsJson.map((json) => Meeting.fromJson(json)).toList();
+    if (response.statusCode == 200) {
+      List<dynamic> meetingsJson = json.decode(response.body);
+      return meetingsJson.map((json) => Meeting.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load meetings');
+    }
   }
 }
