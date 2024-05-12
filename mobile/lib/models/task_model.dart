@@ -3,7 +3,7 @@ class Task {
   final String title;
   final String description;
   final String bannerColor;
-  final bool isChecked;
+  bool isChecked;
 
   Task({
     required this.id,
