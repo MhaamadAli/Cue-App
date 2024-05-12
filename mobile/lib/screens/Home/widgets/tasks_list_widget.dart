@@ -82,7 +82,12 @@ class TasksListWidget extends StatelessWidget {
                             content: Text(task.description),
                             actions: [
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    tasksProvider.updateTaskStatus(task.id);
+                                    tasksProvider.loadTodoTasks();
+                                    tasksProvider.loadAllTasks();
+                                    Navigator.of(context).pop();
+                                  },
                                   child: const Text('Mark as Done')),
                             ],
                           ),
