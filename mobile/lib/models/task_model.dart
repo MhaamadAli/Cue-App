@@ -12,4 +12,13 @@ class Task {
     this.isChecked = false,
     required this.bannerColor,
   });
+  
+  factory Task.fromJson(Map<String, dynamic> json) {
+    return Task(
+        id: json['id'],
+        title: json['title'],
+        description: json['description'],
+        isChecked: json['isChecked'],
+        bannerColor: json['bannerColor']);
+  }
 }
