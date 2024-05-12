@@ -9,6 +9,8 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tasksProvider = Provider.of<TasksProvider>(context);
+    final List<Task> tasks = tasksProvider.allTasks;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
