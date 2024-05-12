@@ -11,12 +11,12 @@ class User {
       required this.role});
 
   factory User.fromJson(Map<String, dynamic> json) {
+    var userJson = json['user'];
     return User(
-      id: json['id'] as int? ?? 0,
-      username: json['username'] as String? ??
-          'Unknown',
-      email: json['email'] as String? ?? 'No Email',
-      role: json['role'] as String? ?? 'No Role',
+      id: userJson['id'] as int? ?? 0,
+      username: userJson['username'] as String? ?? 'Unknown',
+      email: userJson['email'] as String? ?? 'No Email',
+      role: userJson['role'] as String? ?? 'No Role',
     );
   }
 }
