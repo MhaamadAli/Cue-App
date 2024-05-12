@@ -31,65 +31,70 @@ class TaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 320,
-      margin: const EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.6),
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 15,
-            height: 60,
-            decoration: BoxDecoration(
-              color: getBannerColor(),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 60,
+        width: 320,
+        margin: const EdgeInsets.all(5.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 15,
+              height: 60,
+              decoration: BoxDecoration(
+                color: getBannerColor(),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
               ),
             ),
-          ),
-          SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  inputTask.title,
-                  style: GoogleFonts.monomaniacOne(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 22,
+            SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    inputTask.title,
+                    style: GoogleFonts.monomaniacOne(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 22,
+                    ),
                   ),
-                ),
-                Text(
-                  getShortDescription(),
-                  style: GoogleFonts.monomaniacOne(
-                    fontWeight: FontWeight.w200,
-                    color: Colors.grey,
-                    fontSize: 14,
+                  Text(
+                    getShortDescription(),
+                    style: GoogleFonts.monomaniacOne(
+                      fontWeight: FontWeight.w200,
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(width: 10),
-          inputTask.isChecked
-              ? Image.asset('assets/taskDone.png', height: 29, width: 29)
-              : Image.asset('assets/task.png', height: 30, width: 30),
-          SizedBox(width: 10),
-        ],
+            SizedBox(width: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: inputTask.isChecked
+                  ? Image.asset('assets/taskDone.png', height: 29, width: 29)
+                  : Image.asset('assets/task.png', height: 30, width: 30),
+            ),
+          ],
+        ),
       ),
     );
   }
