@@ -48,9 +48,11 @@ class TasksScreen extends StatelessWidget {
                                 actions: [
                                   TextButton(
                                       onPressed: () {
-
+                                        tasksProvider.updateTaskStatus(task.id);
+                                        tasksProvider.loadAllTasks();
+                                        Navigator.of(context).pop();
                                       },
-                                      child: Text('Mark as Done')),
+                                      child: const Text('Mark as Done')),
                                 ],
                               ),
                             );
