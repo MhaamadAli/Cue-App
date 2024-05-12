@@ -26,5 +26,12 @@ class TaskService {
       throw Exception('Failed to load all tasks');
     }
   }
-  
+
+  Future<List<Task>> fetchTodoTasks() async {
+    final response = await http.get(
+      Uri.parse('$baseUrl/tasks/todo'),
+    );
+    List<dynamic> tasksJson = json.decode(response.body);
+    return tasksJson.map((json) => Task.fromJson(json)).toList();
+  }
 }
