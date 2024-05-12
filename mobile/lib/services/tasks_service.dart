@@ -57,6 +57,10 @@ class TaskService {
       body: jsonEncode({"isChecked": true}),
     );
 
-    return Task.fromJson(json.decode(response.body));
+    if (response.statusCode == 200) {
+      return Task.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('unable to mark task as done');
+    }
   }
 }
