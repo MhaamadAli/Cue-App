@@ -11,10 +11,9 @@ class TaskCard extends StatelessWidget {
   });
 
   String getShortDescription() {
-    if (inputTask.description.length > 40) {
-      return '${inputTask.description.substring(0, 40)}...';
-    }
-    return inputTask.description;
+    return inputTask.description.length > 40
+        ? '${inputTask.description.substring(0, 40)}...'
+        : inputTask.description;
   }
 
   Color getBannerColor() {
