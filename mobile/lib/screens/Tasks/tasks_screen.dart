@@ -12,14 +12,14 @@ class TasksScreen extends StatelessWidget {
           id: 1,
           title: 'Finish UI with Flutter',
           description: 'You should finish the UI with Flutter before Saturday',
-          bannerColor: Colors.orange,
+          bannerColor: 'ORANGE',
           isChecked: true
           ),
       Task(
           id: 1,
           title: 'Start with the Backend',
           description: 'Task small Description',
-          bannerColor: Colors.green),
+          bannerColor: 'GREEN'),
     ];
 
     return Scaffold(
