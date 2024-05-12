@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/provider/task_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:mobile/models/task_model.dart';
 import 'package:mobile/widgets/task_card.dart';
 
@@ -7,21 +9,6 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Task> tasks = [
-      Task(
-          id: 1,
-          title: 'Finish UI with Flutter',
-          description: 'You should finish the UI with Flutter before Saturday',
-          bannerColor: 'ORANGE',
-          isChecked: true
-          ),
-      Task(
-          id: 1,
-          title: 'Start with the Backend',
-          description: 'Task small Description',
-          bannerColor: 'GREEN'),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -33,7 +20,7 @@ class TasksScreen extends StatelessWidget {
             Navigator.popAndPushNamed(context, '/home');
           },
         ),
-        title: const Text('tasks', style: TextStyle(color: Colors.black)),
+        title: const Text('Tasks', style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
