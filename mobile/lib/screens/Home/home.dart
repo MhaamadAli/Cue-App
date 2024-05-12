@@ -21,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (Provider.of<UserProvider>(context, listen: false).user != null) {
+        Provider.of<TasksProvider>(context, listen: false).loadAllTasks();
+      }
     });
   }
   int _selectedIndex = 0;
