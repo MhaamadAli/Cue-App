@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/provider/task_provider.dart';
+import 'package:mobile/services/tasks_service.dart';
 import 'package:provider/provider.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
 import 'package:mobile/screens/Home/home.dart';
@@ -23,8 +25,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(
+          create: (context) => TasksProvider(TaskService()),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'CUE personal buddy',
