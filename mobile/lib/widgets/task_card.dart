@@ -4,10 +4,12 @@ import 'package:mobile/models/task_model.dart';
 
 class TaskCard extends StatelessWidget {
   final Task inputTask;
+  final VoidCallback onTap;
 
   const TaskCard({
     super.key,
     required this.inputTask,
+    required this.onTap,
   });
 
   String getShortDescription() {
