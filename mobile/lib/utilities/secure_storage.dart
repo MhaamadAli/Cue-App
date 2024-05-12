@@ -5,10 +5,13 @@ class SecureStorage {
 
   Future<void> storeToken(String token) async {
     await _storage.write(key: 'jwtToken', value: token);
+    print("Token stored successfully");
   }
 
   Future<String?> getToken() async {
-    return await _storage.read(key: 'jwtToken');
+    String? token = await _storage.read(key: 'jwtToken');
+    print("Retrieved token from storage: $token");
+    return token;
   }
 
   Future<void> deleteToken() async {
