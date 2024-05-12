@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (Provider.of<UserProvider>(context, listen: false).user != null) {
         Provider.of<TasksProvider>(context, listen: false).loadAllTasks();
+        Provider.of<TasksProvider>(context, listen: false).loadTodoTasks();
       }
     });
   }
