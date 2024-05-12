@@ -13,6 +13,7 @@ class UserProvider with ChangeNotifier {
   Future<void> login(String email, String password) async {
     try {
       final response = await _apiService.login(email, password);
+      print("Retrieved token: ${response['access_token']}"); 
       await _secureStorage.storeToken(response['access_token']);
       _user = User.fromJson(response);
       notifyListeners();
