@@ -45,25 +45,28 @@ class TasksListWidget extends StatelessWidget {
                 ),
               ),
               TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/tasks');
-                  },
-                  child: Text(
-                    'See All',
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  )),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/tasks');
+                },
+                child: Text(
+                  'See All',
+                  style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
             ],
           ),
           Expanded(
             child: Consumer<TasksProvider>(
               builder: (context, tasksProvider, child) {
-                final tasks = tasksProvider.allTasks;
+                final tasks = tasksProvider.todoTasks;
                 if (tasks.isEmpty) {
-                  return Center(child: Text('No tasks found'));
+                  return const Center(
+                      child: Text('No tasks found',
+                          style: TextStyle(color: Colors.white)));
                 }
                 return ListView.builder(
                   itemCount: tasks.length,
