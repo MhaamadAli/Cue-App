@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
 class Task {
   final int id;
   final String title;
   final String description;
-  final Color bannerColor;
+  final String bannerColor;
   final bool isChecked;
 
   Task({
