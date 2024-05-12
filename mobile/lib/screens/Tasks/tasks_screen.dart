@@ -29,13 +29,17 @@ class TasksScreen extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
-                itemCount: tasks.length,
-                itemBuilder: (context, index) {
-                  Task task = tasks[index];
-                  return TaskCard(inputTask: task);
-                },
-              ),
+              child: tasks.isEmpty
+                  ? const Center(
+                      child: Text("No tasks available"),
+                    )
+                  : ListView.builder(
+                      itemCount: tasks.length,
+                      itemBuilder: (context, index) {
+                        Task task = tasks[index];
+                        return TaskCard(inputTask: task);
+                      },
+                    ),
             ),
           ],
         ),
