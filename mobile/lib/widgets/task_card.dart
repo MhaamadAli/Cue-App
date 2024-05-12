@@ -17,12 +17,13 @@ class TaskCard extends StatelessWidget {
   }
 
   Color getBannerColor() {
-    if (inputTask.bannerColor == 'RED') {
-      return Colors.red;
-    } else if (inputTask.bannerColor == 'GREEN') {
-      return Colors.green;
-    } else {
-      return Colors.orange;
+    switch (inputTask.bannerColor) {
+      case 'RED':
+        return Colors.red;
+      case 'GREEN':
+        return Colors.green;
+      default:
+        return Colors.orange;
     }
   }
 
