@@ -72,7 +72,23 @@ class TasksListWidget extends StatelessWidget {
                   itemCount: tasks.length,
                   itemBuilder: (context, index) {
                     Task task = tasks[index];
-                    return TaskCard(inputTask: task);
+                    return TaskCard(
+                      inputTask: task,
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(task.title),
+                            content: Text(task.description),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {},
+                                  child: const Text('Mark as Done')),
+                            ],
+                          ),
+                        );
+                      },
+                    );
                   },
                 );
               },
