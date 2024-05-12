@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/models/meeting_model.dart';
+import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/Home/widgets/dialog_manager.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';
 import 'package:mobile/screens/Home/widgets/tasks_list_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({super.key});
@@ -45,6 +47,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -63,12 +66,8 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                       },
                     ),
                     const SizedBox(width: 10),
-                    const Expanded(
-                      child: Text(
-                        'Hello Mohammad!',
-                        style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
-                      ),
+                    Expanded(
+                      child: UserInfoDisplay(),
                     ),
                     Container(
                       decoration: const BoxDecoration(
@@ -142,5 +141,21 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         );
       },
     );
+  }
+}
+
+class UserInfoDisplay extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
+    return user != null
+        ? Text(
+            "Hello, ${user.username}!",
+            style: const TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.w900,
+            ),
+          )
+        : const Text("No user logged in");
   }
 }
