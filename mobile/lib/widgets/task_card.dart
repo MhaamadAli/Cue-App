@@ -17,6 +17,16 @@ class TaskCard extends StatelessWidget {
     return inputTask.description;
   }
 
+  Color getBannerColor() {
+    if (inputTask.bannerColor == 'RED') {
+      return Colors.red;
+    } else if (inputTask.bannerColor == 'GREEN') {
+      return Colors.green;
+    } else {
+      return Colors.orange;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +51,7 @@ class TaskCard extends StatelessWidget {
             width: 15,
             height: 60,
             decoration: BoxDecoration(
-              color: inputTask.bannerColor,
+              color: getBannerColor(),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 bottomLeft: Radius.circular(10),
