@@ -12,6 +12,13 @@ class MeetingsProvider with ChangeNotifier {
 
   Future<void> loadMeetings() async {
     _meetings = await meetingService.fetchMeetings();
+    _meetings.sort((a, b) => a.duedatetime.compareTo(b.duedatetime));
+    _meetings = _meetings.where((meeting) {
+      return meeting.duedatetime.isAfter(DateTime.now());
+    }).toList();
+    if (_meetings.length > 3) {
+      _meetings = _meetings.sublist(0, 3);
+    }
     notifyListeners();
   }
 }
