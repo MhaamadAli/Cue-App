@@ -16,4 +16,9 @@ class TasksProvider with ChangeNotifier {
     _allTasks = await _taskService.fetchAllTasks();
     notifyListeners();
   }
+
+  Future<void> loadTodoTasks() async {
+    _todoTasks = await _taskService.fetchTodoTasks();
+    notifyListeners();
+  }
 }
