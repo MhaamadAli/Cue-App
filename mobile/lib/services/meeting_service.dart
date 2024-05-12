@@ -1,3 +1,4 @@
+import 'package:mobile/models/meeting_model.dart';
 import 'package:mobile/utilities/secure_storage.dart';
 
 class MeetingService {
@@ -6,4 +7,5 @@ class MeetingService {
 
   MeetingService(this.secureStorage);
 
+  Future<List<Meeting>> fetchMeetings() async {}
 }
