@@ -22,5 +22,12 @@ class TasksProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateTaskStatus(int taskId) async {}
+  Future<void> updateTaskStatus(int taskId) async {
+    Task? updatedTask = await _taskService.markTaskAsDone(taskId);
+
+    int index = _allTasks.indexWhere((task) => task.id == taskId);
+
+    _allTasks[index] = updatedTask;
+    notifyListeners();
+  }
 }
