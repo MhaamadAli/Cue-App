@@ -27,9 +27,10 @@ export class MeetingsService {
     });
   }
 
-  async update(id: number, updateMeetingDto: Prisma.MeetingUpdateInput) {
+  async update(userId: number,id: number, updateMeetingDto: Prisma.MeetingUpdateInput) {
     return this.prismaService.meeting.update({
       where: {
+        userId,
         id,
       },
       data: updateMeetingDto,
