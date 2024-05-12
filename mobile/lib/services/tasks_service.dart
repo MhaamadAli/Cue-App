@@ -18,8 +18,13 @@ class TaskService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
     );
-    List<dynamic> tasksJson = json.decode(response.body);
-    return tasksJson.map((json) => Task.fromJson(json)).toList();
+
+    if (response.statusCode == 200) {
+      List<dynamic> tasksJson = json.decode(response.body);
+      return tasksJson.map((json) => Task.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load all tasks');
+    }
   }
   
 }
