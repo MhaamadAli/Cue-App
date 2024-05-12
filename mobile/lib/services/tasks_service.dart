@@ -46,5 +46,17 @@ class TaskService {
     }
   }
 
-  Future<Task?> markTaskAsDone(int taskId) async {}
+  Future<Task?> markTaskAsDone(int taskId) async {
+    final authToken = await _secureStorage.getToken();
+    final response = await http.patch(
+      Uri.parse('$baseUrl/tasks/$taskId'),
+      headers: {
+        'Authorization': 'Bearer $authToken',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({"isChecked": true}),
+    );
+
+    return Task.fromJson(json.decode(response.body));
+  }
 }
