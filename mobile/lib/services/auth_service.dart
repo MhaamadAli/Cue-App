@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AUTHService {
-  final String baseUrl = 'http://localhost:3000';
+  final String baseUrl = 'http://192.168.1.6:3000';
 
   Future<Map<String, dynamic>> login(String email, String password) async {
     final response = await http.post(
@@ -18,6 +18,7 @@ class AUTHService {
 
     if (response.statusCode == 200) {
       var responseData = json.decode(response.body);
+      print("Login response data: $responseData");
       return responseData;
     } else {
       throw Exception('Failed to login: ${response.body}');
