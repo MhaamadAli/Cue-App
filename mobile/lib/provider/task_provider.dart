@@ -21,4 +21,6 @@ class TasksProvider with ChangeNotifier {
     _todoTasks = await _taskService.fetchTodoTasks();
     notifyListeners();
   }
+
+  Future<void> updateTaskStatus(int taskId) async {}
 }
