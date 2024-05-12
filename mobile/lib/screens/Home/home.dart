@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/provider/task_provider.dart';
+import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
 import 'package:mobile/screens/Home/widgets/main_screen_content.dart';
 import 'package:mobile/screens/Tasks/tasks_screen.dart';
 import 'package:mobile/screens/map/map_screen.dart';
 import 'package:mobile/screens/schedule/schedule_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -14,6 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+    @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+    });
+  }
   int _selectedIndex = 0;
 
   void _navigateBottomBar(int index) {
@@ -21,6 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
   }
+
+
 
   final List<Widget> _pages = [
     HomeScreenContent(),
