@@ -19,4 +19,12 @@ class Meeting {
   String getFormattedTime() {
     return DateFormat('HH:mm').format(duedatetime);
   }
+
+  factory Meeting.fromJson(Map<String, dynamic> json) {
+    return Meeting(
+        id: json['id'],
+        title: json['title'],
+        description: json['description'],
+        duedatetime: json['date']);
+  }
 }
