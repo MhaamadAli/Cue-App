@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/provider/meeting_provider.dart';
 import 'package:mobile/provider/task_provider.dart';
 import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-    @override
+  @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     });
   }
+
   int _selectedIndex = 0;
 
   void _navigateBottomBar(int index) {
@@ -34,8 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
   }
-
-
 
   final List<Widget> _pages = [
     HomeScreenContent(),
@@ -58,23 +58,33 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/houseGrey.svg',
-                  height: 29, width: 29, color: _selectedIndex == 0 ? Color(0xFF07AB81) : Colors.grey),
+                  height: 29,
+                  width: 29,
+                  color: _selectedIndex == 0 ? Color(0xFF07AB81) : Colors.grey),
               label: 'home'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/taskGrey.svg',
-                  height: 29, width: 29, color: _selectedIndex == 1 ? Color(0xFF07AB81) : Colors.grey),
+                  height: 29,
+                  width: 29,
+                  color: _selectedIndex == 1 ? Color(0xFF07AB81) : Colors.grey),
               label: 'task'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/assistantGrey.svg',
-                  height: 29, width: 29, color: _selectedIndex == 2 ? Color(0xFF07AB81) : Colors.grey),
+                  height: 29,
+                  width: 29,
+                  color: _selectedIndex == 2 ? Color(0xFF07AB81) : Colors.grey),
               label: 'assistant'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/calendarGrey.svg',
-                  height: 29, width: 29, color: _selectedIndex == 3 ? Color(0xFF07AB81) : Colors.grey),
+                  height: 29,
+                  width: 29,
+                  color: _selectedIndex == 3 ? Color(0xFF07AB81) : Colors.grey),
               label: 'schedule'),
           BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/mapsGrey.svg',
-                  height: 29, width: 29, color: _selectedIndex == 4 ? Color(0xFF07AB81) : Colors.grey),
+                  height: 29,
+                  width: 29,
+                  color: _selectedIndex == 4 ? Color(0xFF07AB81) : Colors.grey),
               label: 'maps'),
         ],
         selectedItemColor: Color(0xFF07AB81),
