@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/provider/user_provider.dart';
+import 'package:mobile/services/feedback_service.dart';
+import 'package:provider/provider.dart';
 
 class FeedbackDialog extends StatefulWidget {
   const FeedbackDialog({super.key});
@@ -9,6 +12,7 @@ class FeedbackDialog extends StatefulWidget {
 
 class _FeedbackDialogState extends State<FeedbackDialog> {
   final TextEditingController _feedbackController = TextEditingController();
+  final FeedbackService _feedbackService = FeedbackService();
 
   @override
   Widget build(BuildContext context) {
@@ -42,23 +46,18 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => _sendFeedback(context),
-              child: Text('SEND'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
-                shape: StadiumBorder(),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                shape: const StadiumBorder(),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               ),
+              child: const Text('SEND'),
             ),
           ],
         ),
       ),
     );
-  }
-
-  void _sendFeedback(BuildContext context) {
-    //feedback submission logic to be implemented later
-    print('Feedback: ${_feedbackController.text}');
-    Navigator.of(context).pop();
   }
 
   @override
