@@ -60,6 +60,16 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
     );
   }
 
+  void _sendFeedback(BuildContext context) async {
+    if (_feedbackController.text.isNotEmpty) {
+      final user = Provider.of<UserProvider>(context, listen: false).user;
+      await _feedbackService.sendFeedback(_feedbackController.text, user.id);
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Feedback sent successfully')));
+    }
+  }
+
   @override
   void dispose() {
     _feedbackController.dispose();
