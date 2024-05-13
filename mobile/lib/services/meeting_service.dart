@@ -5,18 +5,23 @@ import 'package:mobile/utilities/secure_storage.dart';
 
 class MeetingService {
   final String baseUrl = 'http://localhost:3000';
-  final SecureStorage secureStorage;
+  final SecureStorage _secureStorage = SecureStorage();
 
-  MeetingService(this.secureStorage);
+  MeetingService();
 
-  Future<List<Meeting>> fetchMeetings() async {
-    final authToken = await secureStorage.getToken();
+  Future<List<Meeting>> fetchAllMeetings() async {
+    final authToken = await _secureStorage.getToken();
+    print("Using token for meeting request: $authToken");
     final response = await http.get(
       Uri.parse('$baseUrl/meetings'),
-      headers: {'Authorization': 'Bearer $authToken'},
+      headers: {
+        'Authorization': 'Bearer $authToken',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
     );
 
     if (response.statusCode == 200) {
+      print("Meeting data received: ${response.body}");
       List<dynamic> meetingsJson = json.decode(response.body);
       return meetingsJson.map((json) => Meeting.fromJson(json)).toList();
     } else {
