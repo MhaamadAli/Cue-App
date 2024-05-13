@@ -24,5 +24,9 @@ class FeedbackService {
         'userId': userId
       }),
     );
+
+    if (response.statusCode != 201) {
+      throw Exception('Failed to send feedback: ${response.body}');
+    }
   }
 }
