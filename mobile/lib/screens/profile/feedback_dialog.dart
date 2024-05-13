@@ -63,10 +63,24 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
   void _sendFeedback(BuildContext context) async {
     if (_feedbackController.text.isNotEmpty) {
       final user = Provider.of<UserProvider>(context, listen: false).user;
-      await _feedbackService.sendFeedback(_feedbackController.text, user.id);
-      Navigator.of(context).pop();
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Feedback sent successfully')));
+      if (user != null) {
+        try {
+          await _feedbackService.sendFeedback(
+              _feedbackController.text, user.id);
+          Navigator.of(context).pop();
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Feedback sent successfully')));
+        } catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Failed to send feedback: $e')));
+        }
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('User not found, please login again')));
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Please enter some feedback before sending')));
     }
   }
 
