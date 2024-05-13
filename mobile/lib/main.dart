@@ -4,7 +4,6 @@ import 'package:mobile/provider/meeting_provider.dart';
 import 'package:mobile/provider/task_provider.dart';
 import 'package:mobile/services/meeting_service.dart';
 import 'package:mobile/services/tasks_service.dart';
-import 'package:mobile/utilities/secure_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:mobile/screens/Assistant/assistant_screen.dart';
 import 'package:mobile/screens/Home/home.dart';
@@ -35,9 +34,8 @@ class MyApp extends StatelessWidget {
           create: (context) => TasksProvider(TaskService()),
         ),
         ChangeNotifierProvider(
-          create: (context) =>
-              MeetingsProvider(MeetingService(SecureStorage())),
-        )
+          create: (context) => MeetingsProvider(MeetingService()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
