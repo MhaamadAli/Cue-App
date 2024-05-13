@@ -18,7 +18,6 @@ class AUTHService {
 
     if (response.statusCode == 200) {
       var responseData = json.decode(response.body);
-      print("Login response data: $responseData");
       return responseData;
     } else {
       throw Exception('Failed to login: ${response.body}');
@@ -37,9 +36,6 @@ class AUTHService {
         'password_hash': password,
       }),
     );
-
-    print('Status Code: ${response.statusCode}');
-    print('Response Body: ${response.body}');
 
     if (response.statusCode == 200) {
       return json.decode(response.body);
