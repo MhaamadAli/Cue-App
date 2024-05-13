@@ -10,4 +10,8 @@ export class FeedbacksService {
       data: createFeedbackDto,
     });
   }
+
+  findAll() {
+    return this.prismaService.feedback.findMany({});
+  }
 }
