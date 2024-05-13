@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/profile/feedback_button.dart';
 import 'package:mobile/screens/profile/feedback_dialog.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,6 +18,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -42,8 +45,8 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            buildTextField(title: 'Full Name', value: 'Mohammad Ali Alawar'),
-            buildTextField(title: 'Email', value: 'm.alialawar@gmail.com'),
+            buildTextField(title: 'Full Name', value: user?.username ?? 'N/A'),
+            buildTextField(title: 'Email', value: user?.email ?? 'N/A'),
             buildTextField(title: 'Gender', value: 'Male', isDropdown: true),
             Expanded(
               child: Align(
@@ -72,8 +75,7 @@ class ProfileScreen extends StatelessWidget {
         if (!isDropdown)
           TextField(
             controller: TextEditingController(text: value),
-            readOnly:
-                true,
+            readOnly: true,
           )
         else
           Container(
