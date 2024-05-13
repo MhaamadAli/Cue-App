@@ -11,7 +11,6 @@ class TaskService {
 
   Future<List<Task>> fetchAllTasks() async {
     final authToken = await _secureStorage.getToken();
-    print("Using token for task request: $authToken");
     final response = await http.get(
       Uri.parse('$baseUrl/tasks/'),
       headers: {
