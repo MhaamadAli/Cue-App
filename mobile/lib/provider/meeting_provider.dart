@@ -11,8 +11,14 @@ class MeetingsProvider with ChangeNotifier {
   List<Meeting> get allMeetings => _allMeetings;
 
   Future<void> loadAllMeetings() async {
-    _allMeetings = await _meetingService.fetchAllMeetings();
-    print("All meetings loaded: ${_allMeetings.length}");
-    notifyListeners();
+    print("Attempting to load all meetings...");
+    try {
+      _allMeetings = await _meetingService.fetchAllMeetings();
+      print("All meetings loaded: ${_allMeetings.length}");
+      notifyListeners();
+    } catch (e) {
+      print("Error loading all meetings: $e");
+      throw e;
+    }
   }
 }
