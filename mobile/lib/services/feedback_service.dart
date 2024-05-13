@@ -9,6 +9,20 @@ class FeedbackService {
   Future<void> sendFeedback(String feedbackText, int userId) async {
     final url = Uri.parse('$baseUrl/feedbacks');
     final token = await SecureStorage().getToken();
-    
+    final String formattedDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        .format(DateTime.now().toUtc());
+
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      body: jsonEncode({
+        'message': feedbackText,
+        'timestamp': formattedDate,
+        'userId': userId
+      }),
+    );
   }
 }
