@@ -13,4 +13,8 @@ export class FeedbacksController {
     return this.feedbacksService.create(createFeedbackDto);
   }
 
+  @Get()
+  findAll() {
+    return this.feedbacksService.findAll();
+  }
 }
