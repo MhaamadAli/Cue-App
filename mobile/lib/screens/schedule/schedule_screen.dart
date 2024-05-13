@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/models/meeting_model.dart';
+import 'package:mobile/provider/meeting_provider.dart';
 import 'package:mobile/screens/schedule/widgets/meeting_card.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -20,7 +22,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   }
 
   List<Meeting> getMeetingsForSelectedDay() {
-    return _meetings
+    var allMeetings =
+        Provider.of<MeetingsProvider>(context, listen: false).allMeetings;
+    return allMeetings
         .where((meeting) => isSameDate(meeting.duedatetime, _selectedDay))
         .toList();
   }
