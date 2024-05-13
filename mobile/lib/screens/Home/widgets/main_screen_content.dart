@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/meeting_model.dart';
+import 'package:mobile/provider/meeting_provider.dart';
 import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/Home/widgets/dialog_manager.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';
@@ -18,35 +18,25 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
   final ValueNotifier<int> _currentPageNotifier = ValueNotifier<int>(0);
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (Provider.of<UserProvider>(context, listen: false).user != null) {
+        Provider.of<MeetingsProvider>(context, listen: false).closestMeetings;
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _pageController.dispose();
     _currentPageNotifier.dispose();
     super.dispose();
   }
 
-  final List<Meeting> _meetings = [
-    Meeting(
-      id: 1,
-      title: 'Finish UI - Nour',
-      description: 'You should finish the UI with Flutter before Saturday',
-      duedatetime: DateTime.now(),
-    ),
-    Meeting(
-      id: 2,
-      title: 'Flutter - Taha',
-      description: 'Meeting with Taha to have a code review',
-      duedatetime: DateTime.now(),
-    ),
-    Meeting(
-      id: 3,
-      title: 'Backend - Chris',
-      description: 'Meeting with Chris to review backend code',
-      duedatetime: DateTime.now(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final meetings = Provider.of<MeetingsProvider>(context).closestMeetings;
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       body: SafeArea(
@@ -92,12 +82,12 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 child: Scrollbar(
                   child: PageView.builder(
                     controller: _pageController,
-                    itemCount: _meetings.length,
+                    itemCount: meetings.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.only(
-                            right: index < _meetings.length - 1 ? 5 : 0),
-                        child: MeetingListCard(inputMeeting: _meetings[index]),
+                            right: index < meetings.length - 1 ? 5 : 0),
+                        child: MeetingListCard(inputMeeting: meetings[index]),
                       );
                     },
                     onPageChanged: (int page) {
@@ -117,12 +107,13 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
   }
 
   Widget _buildPageIndicator() {
+    final meetings = Provider.of<MeetingsProvider>(context).closestMeetings;
     return AnimatedBuilder(
       animation: _currentPageNotifier,
       builder: (_, __) {
         return Row(
           mainAxisSize: MainAxisSize.min,
-          children: List<Widget>.generate(_meetings.length, (int index) {
+          children: List<Widget>.generate(meetings.length, (int index) {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               width: _currentPageNotifier.value == index ? 80.0 : 15.0,
