@@ -10,7 +10,6 @@ class SecureStorage {
 
   Future<String?> getToken() async {
     String? token = await _storage.read(key: 'jwtToken');
-    print("Retrieved token from storage: $token");
     return token;
   }
 
