@@ -3,22 +3,16 @@ import 'package:mobile/models/meeting_model.dart';
 import 'package:mobile/services/meeting_service.dart';
 
 class MeetingsProvider with ChangeNotifier {
-  final MeetingService meetingService;
-  List<Meeting> _meetings = [];
+  final MeetingService _meetingService;
+  List<Meeting> _allMeetings = [];
 
-  MeetingsProvider(this.meetingService);
+  MeetingsProvider(this._meetingService);
 
-  List<Meeting> get meetings => _meetings;
+  List<Meeting> get allMeetings => _allMeetings;
 
-  Future<void> loadMeetings() async {
-    _meetings = await meetingService.fetchMeetings();
-    _meetings.sort((a, b) => a.duedatetime.compareTo(b.duedatetime));
-    _meetings = _meetings.where((meeting) {
-      return meeting.duedatetime.isAfter(DateTime.now());
-    }).toList();
-    if (_meetings.length > 3) {
-      _meetings = _meetings.sublist(0, 3);
-    }
+  Future<void> loadAllMeetings() async {
+    _allMeetings = await _meetingService.fetchAllMeetings();
+    print("All meetings loaded: ${_allMeetings.length}");
     notifyListeners();
   }
 }
