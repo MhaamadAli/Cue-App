@@ -11,28 +11,7 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   DateTime _selectedDay = DateTime.now();
 
-  final List<Meeting> _meetings = [
-    Meeting(
-      id: 1,
-      title: 'Finish UI - Nour',
-      description: 'You should finish the UI with Flutter before Saturday',
-      duedatetime: DateTime.now()
-          .add(Duration(days: 1)),
-    ),
-    Meeting(
-      id: 2,
-      title: 'Flutter - Taha',
-      description: 'Meeting with Taha to have a code review',
-      duedatetime: DateTime.now(),
-    ),
-    Meeting(
-      id: 3,
-      title: 'Backend - Chris',
-      description: 'Meeting with Chris to review backend code',
-      duedatetime: DateTime.now()
-          .subtract(Duration(days: 1)),
-    ),
-  ];
+
 
   bool isSameDate(DateTime date1, DateTime date2) {
     return date1.year == date2.year &&
