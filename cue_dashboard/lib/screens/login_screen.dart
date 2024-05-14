@@ -1,3 +1,4 @@
+import 'package:cue_dashboard/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -52,20 +53,24 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFormField(
+                        MyTextField(
                           controller: emailController,
-                          decoration: InputDecoration(
-                            hintText: 'Email',
-                            border: OutlineInputBorder(),
-                          ),
+                          hintText: 'example@gmail.com',
+                          obscureText: false,
                         ),
                         const SizedBox(height: 20),
-                        TextFormField(
+                        MyTextField(
                           controller: passwordController,
+                          hintText: 'password',
                           obscureText: true,
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            border: OutlineInputBorder(),
+                        ),
+                        const SizedBox(height: 40),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Log In'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                            minimumSize: Size(200, 60),
                           ),
                         ),
                       ],
