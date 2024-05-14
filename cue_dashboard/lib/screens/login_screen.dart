@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +45,29 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         Image.asset('assets/hand.png', width: 30),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextFormField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            hintText: 'Email',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        TextFormField(
+                          controller: passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
                       ],
                     ),
                   ),
