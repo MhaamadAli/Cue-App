@@ -1,3 +1,4 @@
+import 'package:cue_dashboard/widgets/main_button.dart';
 import 'package:cue_dashboard/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,27 +53,32 @@ class LoginScreen extends StatelessWidget {
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        const Text('Email',
+                            style: TextStyle(
+                                fontSize: 22, color: Color(0xFF595656))),
                         MyTextField(
                           controller: emailController,
                           hintText: 'example@gmail.com',
                           obscureText: false,
                         ),
                         const SizedBox(height: 20),
+                        const Text('Password',
+                            style: TextStyle(
+                                fontSize: 22, color: Color(0xFF595656))),
                         MyTextField(
                           controller: passwordController,
                           hintText: 'password',
                           obscureText: true,
                         ),
-                        const SizedBox(height: 40),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Log In'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            minimumSize: Size(200, 60),
-                          ),
-                        ),
+                        const SizedBox(height: 100),
+                        MainButton(
+                            buttonColor: const Color(0xFF06D6A0),
+                            buttonText: 'Log In',
+                            onPressed: () {
+                              // handle Admin login
+                            }),
                       ],
                     ),
                   ),
