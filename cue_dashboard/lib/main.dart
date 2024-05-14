@@ -1,3 +1,4 @@
+import 'package:cue_dashboard/screens/loggin_screen.dart';
 import 'package:cue_dashboard/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => SplashScreen(),
+        "/login": (context) => LoginScreen(), 
       },
     );
   }
