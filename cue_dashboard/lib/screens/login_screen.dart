@@ -1,5 +1,6 @@
 import 'package:cue_dashboard/widgets/main_button.dart';
 import 'package:cue_dashboard/widgets/my_text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                   BoxShadow(
                     color: Color(0xFF06D6A0).withOpacity(0.2),
                     spreadRadius: 15,
-                    blurRadius: 7,
+                    blurRadius: 15,
                     offset: Offset(0, 3),
                   ),
                 ],
@@ -40,13 +41,19 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         Image.asset('assets/logo.png', width: 250),
                         const SizedBox(height: 20),
-                        Text(
-                          'Welcome back',
-                          style: GoogleFonts.montserrat(
-                              fontSize: 24, fontWeight: FontWeight.bold),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Welcome back',
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 20),
+                            Image.asset('assets/hand.png', width: 30),
+                          ],
                         ),
-                        const SizedBox(height: 20),
-                        Image.asset('assets/hand.png', width: 30),
                       ],
                     ),
                   ),
