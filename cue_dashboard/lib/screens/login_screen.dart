@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -9,25 +10,42 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 800, maxHeight: 650),
+            constraints: BoxConstraints(maxWidth: 800, maxHeight: 650),
             child: Container(
-              padding: const EdgeInsets.all(40),
+              padding: EdgeInsets.all(40),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF06D6A0).withOpacity(0.2),
+                    color: Color(0xFF06D6A0).withOpacity(0.2),
                     spreadRadius: 15,
                     blurRadius: 7,
-                    offset: const Offset(0, 3),
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [],
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/logo.png', width: 250),
+                        const SizedBox(height: 20),
+                        Text(
+                          'Welcome back',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 20),
+                        Image.asset('assets/hand.png', width: 30),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
