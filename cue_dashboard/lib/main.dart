@@ -1,4 +1,4 @@
-import 'package:cue_dashboard/screens/loggin_screen.dart';
+import 'package:cue_dashboard/screens/login_screen.dart';
 import 'package:cue_dashboard/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
