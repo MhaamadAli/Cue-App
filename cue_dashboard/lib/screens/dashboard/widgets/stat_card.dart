@@ -24,6 +24,21 @@ class StatCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(16.0),
         margin: const EdgeInsets.all(8.0),
+        child: Row(
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+                width:
+                    10),
+            Text(
+              count,
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }
