@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'feedback_item.dart';
 
 class UserFeedbackSection extends StatelessWidget {
   @override
@@ -18,10 +19,10 @@ class UserFeedbackSection extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.all(8.0),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
+          const Row(
             children: [
               Icon(Icons.feedback, color: Colors.black54),
               SizedBox(width: 8.0),
@@ -34,6 +35,41 @@ class UserFeedbackSection extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 10),
+          FeedbackItem(
+            date: 'Today, 3:00 AM',
+            userName: 'User Name',
+            feedback:
+                'I would appreciate adding a voice activated shortcut on the home screen.',
+            indicatorColor: Colors.purple,
+          ),
+          FeedbackItem(
+            date: 'Apr 25th, 9:00 PM',
+            userName: 'User Name',
+            feedback:
+                'very nice app, maybe a more colorful main color would be better.',
+            indicatorColor: Colors.yellow,
+          ),
+          FeedbackItem(
+            date: 'Apr 22nd, 5:00 PM',
+            userName: 'User Name',
+            feedback:
+                'the user experience is very good, well done and the model is very accurate.',
+            indicatorColor: Colors.blue,
+          ),
+          FeedbackItem(
+            date: 'March 11th, 4:00 AM',
+            userName: 'User Name',
+            feedback: 'good experience so far!',
+            indicatorColor: Colors.green,
+          ),
+          FeedbackItem(
+            date: 'March 7th, 1:00 PM',
+            userName: 'User Name',
+            feedback:
+                'adding categories to organize the tasks would be a very nice feature.',
+            indicatorColor: Colors.red,
           ),
         ],
       ),
