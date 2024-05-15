@@ -4,10 +4,13 @@ import {
   Body,
   HttpException,
   HttpStatus,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { ChatGptService } from './openai.service';
 import { Message } from './dto/message.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { JwtAuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('openai')
 export class OpenAIController {
@@ -17,8 +20,13 @@ export class OpenAIController {
   ) {}
 
   @Post('chat')
-  async getChatResponse(@Body() body: { prompt: string; messages: Message[] }) {
+  @UseGuards(JwtAuthGuard)
+  async getChatResponse(
+    @Body() body: { prompt: string; messages: Message[] },
+    @Req() req,
+  ) {
     try {
+      const userId = req.user['userId'];
       const response = await this.chatGptService.chatGptRequest(
         body.prompt,
         body.messages,
@@ -31,7 +39,7 @@ export class OpenAIController {
             description: jsonObject.response.object.description,
             isChecked: false,
             bannerColor: 'ORANGE',
-            userId: 3,
+            userId: userId,
           },
         });
         return taskCreationResponse;
@@ -42,7 +50,7 @@ export class OpenAIController {
               title: jsonObject.response.title,
               description: jsonObject.response.description,
               date: new Date().toISOString(),
-              userId: 3,
+              userId: userId,
             },
           },
         );
