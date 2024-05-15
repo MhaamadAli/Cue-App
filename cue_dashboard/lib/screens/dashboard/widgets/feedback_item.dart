@@ -28,12 +28,24 @@ class FeedbackItem extends StatelessWidget {
                 size: 10.0,
                 color: indicatorColor,
               ),
-              const SizedBox(width: 8.0),
-              const Expanded(
+              SizedBox(width: 8.0),
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // To be continued
+                    Text(
+                      date,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    SizedBox(height: 4.0),
+                    Text(
+                      userName,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: indicatorColor,
+                      ),
+                    ),
+                    
                   ],
                 ),
               ),
