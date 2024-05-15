@@ -17,8 +17,9 @@ class AssistantScreen extends StatelessWidget {
                 height: 300,
                 width: 300,
                 child: ClipOval(
-                  child: Container(
-                    color: Colors.grey[300], 
+                  child: Image.asset(
+                    'assets/assistantAnimation.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -32,6 +33,7 @@ class AssistantScreen extends StatelessWidget {
                   icon: const Icon(Icons.mic, color: Colors.green),
                   onPressed: () {
                     // Handle microphone press
+                    print('Microphone pressed');
                   },
                 ),
                 Expanded(
@@ -56,6 +58,7 @@ class AssistantScreen extends StatelessWidget {
                         icon: const Icon(Icons.send, color: Colors.green),
                         onPressed: () {
                           // Handle send button press
+                          print('Send button pressed');
                         },
                       ),
                     ),
