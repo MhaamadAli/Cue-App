@@ -38,7 +38,7 @@ export class ChatGptService {
         
       const choice = completion.choices[0];
       if (!choice.message) {
-        return { error: 'No response from GPT-3' };
+        return { error: 'No response from GPT-4' };
       }
       const content = choice.message.content;
       let type = 'unknown';
