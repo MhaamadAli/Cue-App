@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/services/ai_service.dart';
 
-class AssistantScreen extends StatelessWidget {
+class AssistantScreen extends StatefulWidget {
   const AssistantScreen({super.key});
+
+  @override
+  _AssistantScreenState createState() => _AssistantScreenState();
+}
+
+class _AssistantScreenState extends State<AssistantScreen> {
+  final TextEditingController _textController = TextEditingController();
+  final AiService _aiService = AiService();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +47,7 @@ class AssistantScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextField(
+                    controller: _textController,
                     decoration: InputDecoration(
                       hintText: 'Press the mic and start speaking or type',
                       hintStyle: GoogleFonts.lato(
@@ -56,10 +66,7 @@ class AssistantScreen extends StatelessWidget {
                       ),
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.send, color: Colors.green),
-                        onPressed: () {
-                          // Handle send button press
-                          print('Send button pressed');
-                        },
+                        onPressed: _handleSend,
                       ),
                     ),
                   ),
@@ -71,4 +78,5 @@ class AssistantScreen extends StatelessWidget {
       ),
     );
   }
+
 }
