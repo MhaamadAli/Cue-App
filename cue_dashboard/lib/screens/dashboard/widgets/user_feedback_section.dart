@@ -18,6 +18,25 @@ class UserFeedbackSection extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.all(8.0),
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: [
+              Icon(Icons.feedback, color: Colors.black54),
+              SizedBox(width: 8.0),
+              Text(
+                'User Feedback',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black54,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
