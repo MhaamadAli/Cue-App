@@ -45,12 +45,14 @@ class FeedbackItem extends StatelessWidget {
                         color: indicatorColor,
                       ),
                     ),
-                    
+                    SizedBox(height: 4.0),
+                    Text(feedback),
                   ],
                 ),
               ),
             ],
           ),
+          Divider(),
         ],
       ),
     );
