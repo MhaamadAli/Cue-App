@@ -79,4 +79,18 @@ class _AssistantScreenState extends State<AssistantScreen> {
     );
   }
 
+  Future<void> _handleSend() async {
+    final messageText = _textController.text.trim();
+    if (messageText.isEmpty) {
+      return;
+    }
+
+    try {
+      await _aiService.sendAiMessage(messageText);
+      _textController.clear();
+      print('Message sent successfully');
+    } catch (e) {
+      print('Failed to send message: $e');
+    }
+  }
 }
