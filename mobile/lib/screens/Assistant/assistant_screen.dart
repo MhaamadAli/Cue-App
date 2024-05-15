@@ -16,6 +16,11 @@ class AssistantScreen extends StatelessWidget {
               child: Container(
                 height: 300,
                 width: 300,
+                child: ClipOval(
+                  child: Container(
+                    color: Colors.grey[300], 
+                  ),
+                ),
               ),
             ),
           ),
