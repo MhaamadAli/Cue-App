@@ -84,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                             buttonColor: const Color(0xFF06D6A0),
                             buttonText: 'Log In',
                             onPressed: () {
-                              // handle Admin login
+                              Navigator.popAndPushNamed(context, '/dashboard');
                             }),
                       ],
                     ),
