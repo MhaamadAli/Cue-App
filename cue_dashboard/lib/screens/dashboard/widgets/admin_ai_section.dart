@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'admin_ai_message.dart';
 
 class AdminAISection extends StatelessWidget {
   @override
@@ -18,12 +19,22 @@ class AdminAISection extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.all(8.0),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
+          const Text(
             'Admin AI',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          AdminAIMessage(
+            message:
+                'I would appreciate adding a voice activated shortcut on home screen.',
+            isResponse: false,
+          ),
+          AdminAIMessage(
+            message: 'I like the idea, so how would we start implementing it?',
+            isResponse: true,
           ),
         ],
       ),
