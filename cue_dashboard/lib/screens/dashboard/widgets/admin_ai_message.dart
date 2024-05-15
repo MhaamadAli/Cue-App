@@ -17,6 +17,7 @@ class AdminAIMessage extends StatelessWidget {
           color: isResponse ? Colors.green.shade100 : Colors.grey.shade200,
           borderRadius: BorderRadius.circular(10.0),
         ),
+        child: Text(message),
       ),
     );
   }
