@@ -18,6 +18,15 @@ class AdminAISection extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.all(8.0),
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Admin AI',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
