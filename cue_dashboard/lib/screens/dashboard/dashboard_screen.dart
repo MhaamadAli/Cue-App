@@ -8,7 +8,12 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CUE Dashboard'),
+        title: Row(
+          children: [
+            Image.asset('assets/logo.png', width: 70),
+            Text('CUE Dashboard'),
+          ],
+        ),
       ),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
