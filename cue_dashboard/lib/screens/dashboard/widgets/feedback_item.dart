@@ -16,7 +16,7 @@ class FeedbackItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -33,17 +33,22 @@ class FeedbackItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      date,
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    SizedBox(height: 4.0),
-                    Text(
-                      userName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: indicatorColor,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          userName,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: indicatorColor,
+                          ),
+                        ),
+                        SizedBox(height: 4.0),
+                        Text(
+                          date,
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 4.0),
                     Text(feedback),
