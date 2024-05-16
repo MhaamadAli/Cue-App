@@ -12,6 +12,12 @@ export class FeedbacksService {
   }
 
   findAll() {
-    return this.prismaService.feedback.findMany({});
+    return this.prismaService.feedback.findMany({
+      include: {
+        user: {
+          select: { username: true },
+        },
+      },
+    });
   }
 }

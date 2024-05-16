@@ -14,6 +14,7 @@ export class FeedbacksController {
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
   findAll() {
     return this.feedbacksService.findAll();
   }
