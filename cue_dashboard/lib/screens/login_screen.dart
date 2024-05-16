@@ -1,8 +1,10 @@
+import 'package:cue_dashboard/provider/user_provider.dart';
 import 'package:cue_dashboard/widgets/main_button.dart';
 import 'package:cue_dashboard/widgets/my_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -83,9 +85,7 @@ class LoginScreen extends StatelessWidget {
                         MainButton(
                             buttonColor: const Color(0xFF06D6A0),
                             buttonText: 'Log In',
-                            onPressed: () {
-                              Navigator.popAndPushNamed(context, '/dashboard');
-                            }),
+                            onPressed: () => handleLogin(context)),
                       ],
                     ),
                   ),
@@ -96,5 +96,18 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void handleLogin(BuildContext context) {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    Provider.of<UserProvider>(context, listen: false)
+        .login(email, password)
+        .then((_) {
+      Navigator.pushReplacementNamed(context, "/dashboard");
+    }).catchError((error) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Login failed: $error')));
+    });
   }
 }
