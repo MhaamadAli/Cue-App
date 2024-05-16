@@ -22,9 +22,10 @@ class StatCard extends StatelessWidget {
             ),
           ],
         ),
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 40),
         margin: const EdgeInsets.all(8.0),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
               title,
@@ -35,7 +36,7 @@ class StatCard extends StatelessWidget {
                     10),
             Text(
               count,
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ],
         ),
