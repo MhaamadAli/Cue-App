@@ -8,4 +8,20 @@ class FeedbackService {
   final SecureStorage _secureStorage = SecureStorage();
 
   FeedbackService();
+  Future<List<FeedbackModel>> fetchFeedbacks() async {
+    final token = await _secureStorage.getToken();
+    final response = await http.get(
+      Uri.parse('$baseUrl/feedbacks'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    List<dynamic> responseData = json.decode(response.body);
+    print('Response data: $responseData');
+    return responseData
+        .map((feedback) => FeedbackModel.fromJson(feedback))
+        .toList();
+  }
 }
