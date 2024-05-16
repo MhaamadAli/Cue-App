@@ -1,22 +1,17 @@
+import 'package:cue_dashboard/models/feedback_model.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackItem extends StatelessWidget {
-  final String date;
-  final String userName;
-  final String feedback;
-  final Color indicatorColor;
+  final FeedbackModel feedback;
 
   FeedbackItem({
-    required this.date,
-    required this.userName,
     required this.feedback,
-    required this.indicatorColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 30),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -26,7 +21,7 @@ class FeedbackItem extends StatelessWidget {
               Icon(
                 Icons.circle,
                 size: 10.0,
-                color: indicatorColor,
+                color: Colors.red,
               ),
               SizedBox(width: 8.0),
               Expanded(
@@ -37,21 +32,21 @@ class FeedbackItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          userName,
+                          feedback.userName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: indicatorColor,
+                            color: Colors.lightBlueAccent,
                           ),
                         ),
                         SizedBox(height: 4.0),
                         Text(
-                          date,
+                          feedback.formattedDate,
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
                     SizedBox(height: 4.0),
-                    Text(feedback),
+                    Text(feedback.feedback),
                   ],
                 ),
               ),
