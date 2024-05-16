@@ -15,7 +15,12 @@ class AUTHService {
         'password': password,
       }),
     );
-    var responseData = json.decode(response.body);
-    return responseData;
+
+    if (response.statusCode == 200) {
+      var responseData = json.decode(response.body);
+      return responseData;
+    } else {
+      throw Exception('Failed to login: ${response.body}');
+    }
   }
 }
