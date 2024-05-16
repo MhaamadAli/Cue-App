@@ -18,10 +18,15 @@ class FeedbackService {
       },
     );
 
-    List<dynamic> responseData = json.decode(response.body);
-    print('Response data: $responseData');
-    return responseData
-        .map((feedback) => FeedbackModel.fromJson(feedback))
-        .toList();
+    if (response.statusCode == 200) {
+      List<dynamic> responseData = json.decode(response.body);
+      print('Response data: $responseData');
+      return responseData
+          .map((feedback) => FeedbackModel.fromJson(feedback))
+          .toList();
+    } else {
+      print('Failed to load feedbacks: ${response.body}');
+      throw Exception('Failed to load feedbacks: ${response.body}');
+    }
   }
 }
