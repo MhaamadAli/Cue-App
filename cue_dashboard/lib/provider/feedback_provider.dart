@@ -8,5 +8,13 @@ class FeedbackProvider with ChangeNotifier {
 
   List<FeedbackModel> get feedbacks => _feedbacks;
 
-  
+  Future<void> fetchFeedbacks() async {
+    try {
+      _feedbacks = await _feedbackService.fetchFeedbacks();
+      notifyListeners();
+    } catch (e) {
+      print('Error fetching feedbacks: $e');
+      throw Exception('Failed to fetch feedbacks: $e');
+    }
+  }
 }
