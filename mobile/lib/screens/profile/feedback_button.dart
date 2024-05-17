@@ -38,14 +38,14 @@ class FeedbackButton extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: const Color(0xFF06D6A0),
+                color: const Color(0xFF07AB81),
                 borderRadius: BorderRadius.circular(
                     15),
               ),
               child: const Icon(
                 Icons.feedback,
                 color: Colors.white,
-                size: 20,
+                size: 22,
               ),
             ),
           ],
