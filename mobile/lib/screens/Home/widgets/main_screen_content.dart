@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/provider/meeting_provider.dart';
+import 'package:mobile/provider/task_provider.dart';
 import 'package:mobile/provider/user_provider.dart';
 import 'package:mobile/screens/Home/widgets/dialog_manager.dart';
 import 'package:mobile/screens/Home/widgets/meeting_list_widget.dart';

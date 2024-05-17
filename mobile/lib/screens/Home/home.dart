@@ -38,63 +38,85 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final List<Widget> _pages = [
-    HomeScreenContent(),
-    TasksScreen(),
-    AssistantScreen(),
-    ScheduleScreen(),
-    MapScreen()
-  ];
+  void _navigateToHome() {
+    setState(() {
+      _selectedIndex = 0;
+    });
+  }
+
+  List<Widget> _pages() {
+    return [
+      HomeScreenContent(),
+      TasksScreen(),
+      AssistantScreen(
+        onBack: () => _navigateToHome(),
+      ),
+      ScheduleScreen(),
+      MapScreen()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
-        children: _pages,
+        children: _pages(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        items: [
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/houseGrey.svg',
-                  height: 29,
-                  width: 29,
-                  color: _selectedIndex == 0 ? Color(0xFF07AB81) : Colors.grey),
-              label: 'home'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/taskGrey.svg',
-                  height: 29,
-                  width: 29,
-                  color: _selectedIndex == 1 ? Color(0xFF07AB81) : Colors.grey),
-              label: 'task'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/assistantGrey.svg',
-                  height: 29,
-                  width: 29,
-                  color: _selectedIndex == 2 ? Color(0xFF07AB81) : Colors.grey),
-              label: 'assistant'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/calendarGrey.svg',
-                  height: 29,
-                  width: 29,
-                  color: _selectedIndex == 3 ? Color(0xFF07AB81) : Colors.grey),
-              label: 'schedule'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/mapsGrey.svg',
-                  height: 29,
-                  width: 29,
-                  color: _selectedIndex == 4 ? Color(0xFF07AB81) : Colors.grey),
-              label: 'maps'),
-        ],
-        selectedItemColor: Color(0xFF07AB81),
-        unselectedItemColor: Colors.grey,
-        iconSize: 30,
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-      ),
+      bottomNavigationBar: _selectedIndex != 2
+          ? BottomNavigationBar(
+              currentIndex: _selectedIndex,
+              onTap: _navigateBottomBar,
+              items: [
+                BottomNavigationBarItem(
+                    icon: SvgPicture.asset('assets/houseGrey.svg',
+                        height: 29,
+                        width: 29,
+                        color: _selectedIndex == 0
+                            ? Color(0xFF07AB81)
+                            : Colors.grey),
+                    label: 'home'),
+                BottomNavigationBarItem(
+                    icon: SvgPicture.asset('assets/taskGrey.svg',
+                        height: 29,
+                        width: 29,
+                        color: _selectedIndex == 1
+                            ? Color(0xFF07AB81)
+                            : Colors.grey),
+                    label: 'task'),
+                BottomNavigationBarItem(
+                    icon: SvgPicture.asset('assets/assistantGrey.svg',
+                        height: 29,
+                        width: 29,
+                        color: _selectedIndex == 2
+                            ? Color(0xFF07AB81)
+                            : Colors.grey),
+                    label: 'assistant'),
+                BottomNavigationBarItem(
+                    icon: SvgPicture.asset('assets/calendarGrey.svg',
+                        height: 29,
+                        width: 29,
+                        color: _selectedIndex == 3
+                            ? Color(0xFF07AB81)
+                            : Colors.grey),
+                    label: 'schedule'),
+                BottomNavigationBarItem(
+                    icon: SvgPicture.asset('assets/mapsGrey.svg',
+                        height: 29,
+                        width: 29,
+                        color: _selectedIndex == 4
+                            ? Color(0xFF07AB81)
+                            : Colors.grey),
+                    label: 'maps'),
+              ],
+              selectedItemColor: Color(0xFF07AB81),
+              unselectedItemColor: Colors.grey,
+              iconSize: 30,
+              type: BottomNavigationBarType.fixed,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+            )
+          : null,
     );
   }
 }
