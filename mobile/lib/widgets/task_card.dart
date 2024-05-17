@@ -71,8 +71,8 @@ class TaskCard extends StatelessWidget {
                   Text(
                     inputTask.title,
                     style: GoogleFonts.monomaniacOne(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
+                      color: Color.fromARGB(255, 75, 75, 75),
+                      fontSize: 26,
                     ),
                   ),
                   Text(
@@ -80,7 +80,7 @@ class TaskCard extends StatelessWidget {
                     style: GoogleFonts.monomaniacOne(
                       fontWeight: FontWeight.w200,
                       color: Colors.grey,
-                      fontSize: 14,
+                      fontSize: 17,
                     ),
                   ),
                 ],
