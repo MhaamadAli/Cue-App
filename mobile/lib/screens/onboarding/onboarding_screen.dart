@@ -75,8 +75,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   OnboardPage(
                     imagePath: 'assets/onboarding3.png',
-                    text: 'You talk,',
-                    secondaryText: 'Cue plans.',
+                    text: 'You talk, Cue plans.',
+                    secondaryText: '',
                     buttonText: 'Get Started',
                     onButtonPressed: _onNextPressed,
                   ),
