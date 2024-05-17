@@ -17,7 +17,10 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shadowColor: Color(0xFF06D6A0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
       elevation: 0,
       backgroundColor: Colors.white,
       child: Container(
@@ -47,12 +50,17 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
             ElevatedButton(
               onPressed: () => _sendFeedback(context),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Color(0xFF07AB81),
                 shape: const StadiumBorder(),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               ),
-              child: const Text('SEND'),
+              child: const Text(
+                'SEND',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,),
+              ),
             ),
           ],
         ),
