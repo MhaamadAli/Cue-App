@@ -72,7 +72,7 @@ class TaskCard extends StatelessWidget {
                     inputTask.title,
                     style: GoogleFonts.monomaniacOne(
                       fontWeight: FontWeight.w500,
-                      fontSize: 22,
+                      fontSize: 24,
                     ),
                   ),
                   Text(
