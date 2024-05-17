@@ -12,6 +12,7 @@ class TasksScreen extends StatelessWidget {
     final tasksProvider = Provider.of<TasksProvider>(context);
     final List<Task> tasks = tasksProvider.allTasks;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -28,6 +29,7 @@ class TasksScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: Column(
           children: [
+            const SizedBox(height: 50),
             Expanded(
               child: tasks.isEmpty
                   ? const Center(
