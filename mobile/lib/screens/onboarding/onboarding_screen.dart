@@ -59,17 +59,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   OnboardPage(
                     imagePath: 'assets/onboarding1.png',
                     text:
-                        'Behind every successful human is someone reminding him of his duties.',
+                        'Behind every successful person is someone reminding them of their duties.',
                     secondaryText:
-                        'Cue is your daily personal assistant, it uses AI to keep you on top of your day!',
+                        'Cue is your daily personal assistant. It uses AI to keep you on top of your day!',
                     buttonText: 'Next',
                     onButtonPressed: _onNextPressed,
                   ),
                   OnboardPage(
                     imagePath: 'assets/onboarding2.png',
-                    text: 'With Cue\'s smart notifications you won\'t miss a task.',
+                    text: 'With Cue\'s smart notifications, you won\'t miss a task.',
                     secondaryText:
-                        'You just need to talk to it and it will handle everything',
+                        'You just need to talk to it, and it will handle everything.',
                     buttonText: 'Next',
                     onButtonPressed: _onNextPressed,
                   ),
