@@ -122,7 +122,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
               margin: const EdgeInsets.symmetric(horizontal: 4.0),
               decoration: BoxDecoration(
                 color: _currentPageNotifier.value == index
-                    ? Color(0xFFFFD166)
+                    ? const Color(0xFFFFD166)
                     : Colors.grey.shade300,
                 borderRadius: _currentPageNotifier.value == index
                     ? BorderRadius.circular(4.0)

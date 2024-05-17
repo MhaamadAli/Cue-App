@@ -37,8 +37,7 @@ class MeetingListCard extends StatelessWidget {
             inputMeeting.title,
             style: GoogleFonts.monomaniacOne(
               color: Colors.white,
-              fontSize: 32,
-              fontWeight: FontWeight.w400,
+              fontSize: 36,
             ),
           ),
           Padding(
