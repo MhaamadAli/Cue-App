@@ -24,9 +24,9 @@ export class TasksService {
     return this.prismaService.task.findMany({
       where: {
         userId,
-        isChecked: false
-      }
-    })
+        isChecked: false,
+      },
+    });
   }
 
   async findOne(id: number) {
@@ -37,7 +37,11 @@ export class TasksService {
     });
   }
 
-  async update(userId:number,id: number, updateTaskDto: Prisma.TaskUpdateInput) {
+  async update(
+    userId: number,
+    id: number,
+    updateTaskDto: Prisma.TaskUpdateInput,
+  ) {
     return this.prismaService.task.update({
       where: {
         userId,

@@ -33,9 +33,10 @@ export class TasksController {
   @Get('todo')
   @UseGuards(JwtAuthGuard)
   getNotDone(@Req() req: Request) {
-    const userId = req.user['userID'];
+    const userId = req.user['userId'];
     return this.tasksService.getNotDone(userId);
   }
+
 
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
@@ -45,7 +46,7 @@ export class TasksController {
     @Body() updateTaskDto: Prisma.TaskUpdateInput,
   ) {
     const userId = req.user['userId'];
-    return this.tasksService.update(userId,+ id, updateTaskDto);
+    return this.tasksService.update(userId, +id, updateTaskDto);
   }
 
   @Delete(':id')
