@@ -53,4 +53,22 @@ describe('UsersController', () => {
       expect(await controller.findAll()).toBe(result);
     });
   });
+
+  describe('findOne', () => {
+    it('should return a single user', async () => {
+      const result = {
+        id: 1,
+        username: 'test',
+        email: 'test@example.com',
+        password_hash: 'hashedpassword',
+        role: Role.USER,
+        tasks: [],
+        meetings: [],
+        locations: [],
+      };
+      jest.spyOn(service, 'findOne').mockResolvedValue(result);
+
+      expect(await controller.findOne('1')).toBe(result);
+    });
+  });
 });
