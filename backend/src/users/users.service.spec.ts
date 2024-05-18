@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { Role } from '@prisma/client';
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -30,5 +31,22 @@ describe('UsersService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  describe('findAll', () => {
+    it('should return an array of users', async () => {
+      const result = [
+        {
+          id: 1,
+          username: 'test',
+          email: 'test@example.com',
+          password_hash: 'hashedpassword',
+          role: Role.USER,
+        },
+      ];
+      jest.spyOn(prisma.user, 'findMany').mockResolvedValue(result);
+
+      expect(await service.findAll()).toBe(result);
+    });
   });
 });
