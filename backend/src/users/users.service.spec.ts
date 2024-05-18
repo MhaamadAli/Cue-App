@@ -49,4 +49,22 @@ describe('UsersService', () => {
       expect(await service.findAll()).toBe(result);
     });
   });
+
+  describe('findOne', () => {
+    it('should return a single user', async () => {
+      const result = {
+        id: 1,
+        username: 'test',
+        email: 'test@example.com',
+        password_hash: 'hashedpassword',
+        role: Role.USER,
+        tasks: [],
+        meetings: [],
+        locations: [],
+      };
+      jest.spyOn(prisma.user, 'findUnique').mockResolvedValue(result);
+
+      expect(await service.findOne(1)).toBe(result);
+    });
+  });
 });
