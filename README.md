@@ -11,12 +11,11 @@
 - As a user, I want to use voice commands to manage tasks and access information, so I can be more productive.
 - As a user, I want location-based reminders to stay on schedule and avoid missing important tasks.
 - As a user, I want to manage my calendar with voice commands through the app, so I can keep my schedule organized hands-free.
-- As a user, I want to create custom categories for reminders, so I can easily find and manage them.
 
 ### Admin Stories
 - As an admin, I want to view user activity statistics to understand usage patterns, so I can make informed decisions about app improvements.
-- As an admin, I want to manage user accounts, including blocking if needed, so I can maintain a safe and secure user environment.
-- As an admin, I want to view anonymized user data to improve the app, so I can identify areas for enhancement based on user behavior.
+- As an admin, I want to view user feedbacks, so I can make app improvements based on user needs.
+- As an admin, I want to get AI suggestions for possible app improvements based on user feedbacks 
 
 <br><br>
 <!-- Tech stack -->
@@ -25,10 +24,9 @@
 ###  Cue is built using the following technologies:
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+- For persistent storage (database), the app uses [PostgreSQL](https://www.postgresql.org/). PostgreSQL is a powerful, open-source object-relational database system that allows us to create and manage our app's data effectively.
+- To send notifications, the app uses [Forebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) FCM supports Android, iOS, and the web, allowing us to send and receive messages reliably across platforms.
+- The app uses the fonts ["MonomaniacOne"](https://fonts.google.com/specimen/Monomaniac+One) and ["Roboto"](https://fonts.google.com/specimen/Roboto) to enhance the visual appeal and readability of the app. 
 
 <br><br>
 <!-- UI UX -->
@@ -37,13 +35,13 @@
 
 > We designed Cue using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
-- Project Figma design [figma](https://www.figma.com/file/LsuOx5Wnh5YTGSEtrgvz4l/Purrfect-Pals?type=design&node-id=257%3A79&mode=design&t=adzbABt5hbb91ucZ-1)
+- Project Figma design [figma](https://www.figma.com/design/IFyidG2fCVOtcW0woehz5H/Cue---Your-Personal-Assistant?node-id=0%3A1&t=859wGwG9APzQMKGf-1)
 
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
+| Home screen  | Assistant Screen | onBoarding screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/home.png) | ![fsdaf](./readme/demo/assistant.png) | ![fsdaf](./readme/demo/onboarding3.png) |
 
 <br><br>
 
