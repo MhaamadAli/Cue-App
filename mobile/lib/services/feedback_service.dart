@@ -4,7 +4,7 @@ import 'package:mobile/utilities/secure_storage.dart';
 import 'package:intl/intl.dart';
 
 class FeedbackService {
-  final String baseUrl = 'http://localhost:3000';
+  final String baseUrl = 'http://192.168.0.105:3000';
 
   Future<void> sendFeedback(String feedbackText, int userId) async {
     final url = Uri.parse('$baseUrl/feedbacks');

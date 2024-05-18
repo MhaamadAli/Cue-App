@@ -14,7 +14,7 @@ class TasksListWidget extends StatelessWidget {
 
     return Container(
       width: screenSize.width * 0.9,
-      height: screenSize.height * 0.513,
+      height: screenSize.height * 0.46,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
       decoration: BoxDecoration(

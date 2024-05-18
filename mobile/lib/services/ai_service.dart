@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:mobile/utilities/secure_storage.dart';
 
 class AiService {
-  final String baseUrl = 'http://localhost:3000';
+  final String baseUrl = 'http://192.168.0.105:3000';
 
   Future<void> sendAiMessage(String messageText) async {
     final url = Uri.parse('$baseUrl/openai/chat');

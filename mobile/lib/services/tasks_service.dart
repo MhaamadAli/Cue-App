@@ -4,7 +4,7 @@ import 'package:mobile/models/task_model.dart';
 import 'package:mobile/utilities/secure_storage.dart';
 
 class TaskService {
-  final String baseUrl = 'http://localhost:3000';
+  final String baseUrl = 'http://192.168.0.105:3000';
   final SecureStorage _secureStorage = SecureStorage();
 
   TaskService();
