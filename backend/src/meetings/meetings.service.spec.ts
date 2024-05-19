@@ -48,5 +48,22 @@ describe('MeetingsService', () => {
       expect(await service.create(createMeetingDto)).toBe(result);
     });
   });
+describe('findAll', () => {
+  it('should return an array of meetings', async () => {
+    const result = [{ id: 1, title: 'Test meeting', userId: 1 }];
+    jest.spyOn(prisma.meeting, 'findMany').mockResolvedValue(result as any);
+
+    expect(await service.findAll(1)).toBe(result);
+  });
+});
+
+describe('findOne', () => {
+  it('should return a single meeting', async () => {
+    const result = { id: 1, title: 'Test meeting', userId: 1 };
+    jest.spyOn(prisma.meeting, 'findUnique').mockResolvedValue(result as any);
+
+    expect(await service.findOne(1)).toBe(result);
+  });
+});
 
 });
