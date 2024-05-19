@@ -66,13 +66,10 @@
 | Home screen  | Assistant Screen | Schedule Screen |
 | ![HomeScreen](./readme/demo/implementation/homescreen.gif) | ![fsdaf](./readme/demo/implementation/assistantScreen.gif) | ![fsdaf](./readme/demo/implementation/schedule.gif) |
 
-### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-
+### Admin Screens (Desktob | Web)
+| Login screen  |  Dashboard screen |
+| ---| ---|
+| ![Landing](./readme/demo/adminLogin.png) | ![fsdaf](./readme/demo/AdminDashboard.png) |
 <br><br>
 
 
