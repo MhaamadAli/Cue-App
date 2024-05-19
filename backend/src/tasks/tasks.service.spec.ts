@@ -68,4 +68,31 @@ describe('TasksService', () => {
       expect(await service.getNotDone(1)).toBe(result);
     });
   });
+  describe('findOne', () => {
+    it('should return a single task', async () => {
+      const result = { id: 1, title: 'Test task', userId: 1 };
+      jest.spyOn(prisma.task, 'findUnique').mockResolvedValue(result as any);
+
+      expect(await service.findOne(1)).toBe(result);
+    });
+  });
+
+  describe('update', () => {
+    it('should update a task', async () => {
+      const updateTaskDto: Prisma.TaskUpdateInput = { title: 'Updated task' };
+      const result = { id: 1, title: 'Updated task', userId: 1 };
+      jest.spyOn(prisma.task, 'update').mockResolvedValue(result as any);
+
+      expect(await service.update(1, 1, updateTaskDto)).toBe(result);
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove a task', async () => {
+      const result = { id: 1, title: 'Test task', userId: 1 };
+      jest.spyOn(prisma.task, 'delete').mockResolvedValue(result as any);
+
+      expect(await service.remove(1)).toBe(result);
+    });
+  });
 });
