@@ -26,11 +26,11 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const Text(
+              Text(
                 'CUE 👋',
-                style: TextStyle(
-                  fontSize: 44,
-                  fontWeight: FontWeight.bold,
+                style: GoogleFonts.monomaniacOne(
+                  fontSize: 54,
+                  fontWeight: FontWeight.w500,
                   color: Color(0xFF06D6A0),
                 ),
                 textAlign: TextAlign.center,
@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 80),
               MainButton(
                 buttonColor: Color(0xFF06D6A0),
-                buttonText: 'Log In',
+                buttonText: 'Login',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed("/login");
                 },
@@ -46,22 +46,23 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 16),
               SecondaryButton(
                 buttonColor: Color(0xFF06D6A0),
-                buttonText: 'Sign Up',
+                buttonText: 'Signup',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed("/signup");
                 },
               ),
               const SizedBox(height: 100),
               TextButton(
-                onPressed: () {
-                  // to be handled later ( login with google OAuth )
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Image.asset('assets/googleLogo.png', height: 34),
                     const SizedBox(width: 8),
-                    const Text('Or continue with Google'),
+                    const Text(
+                      'Or continue using Google',
+                      style: TextStyle(fontSize: 18, color: Color(0xFF87CEEB)),
+                    ),
                   ],
                 ),
               ),
