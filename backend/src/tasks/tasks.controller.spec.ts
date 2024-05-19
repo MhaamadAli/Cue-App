@@ -53,4 +53,36 @@ describe('TasksController', () => {
       expect(await controller.create(createTaskDto)).toBe(result);
     });
   });
+
+  describe('findAll', () => {
+    it('should return an array of tasks', async () => {
+      const result = [
+        { id: 1, title: 'Test task', userId: 1, locationId: null },
+      ];
+      jest.spyOn(service, 'findAll').mockResolvedValue(result as any);
+
+      expect(await controller.findAll({ user: { userId: 1 } } as any)).toBe(
+        result,
+      );
+    });
+  });
+
+  describe('getNotDone', () => {
+    it('should return an array of tasks that are not done', async () => {
+      const result = [
+        {
+          id: 1,
+          title: 'Test task',
+          userId: 1,
+          isChecked: false,
+          locationId: null,
+        },
+      ];
+      jest.spyOn(service, 'getNotDone').mockResolvedValue(result as any);
+
+      expect(await controller.getNotDone({ user: { userId: 1 } } as any)).toBe(
+        result,
+      );
+    });
+  });
 });
