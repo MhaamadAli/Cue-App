@@ -81,6 +81,7 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF06D6A0),
         onPressed: () {
           if (_currentPosition != null) {
             _mapController.move(_currentPosition!, 15);
