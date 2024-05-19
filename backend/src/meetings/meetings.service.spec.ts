@@ -65,5 +65,25 @@ describe('findOne', () => {
     expect(await service.findOne(1)).toBe(result);
   });
 });
+describe('update', () => {
+  it('should update a meeting', async () => {
+    const updateMeetingDto: Prisma.MeetingUpdateInput = {
+      title: 'Updated meeting',
+    };
+    const result = { id: 1, title: 'Updated meeting', userId: 1 };
+    jest.spyOn(prisma.meeting, 'update').mockResolvedValue(result as any);
+
+    expect(await service.update(1, 1, updateMeetingDto)).toBe(result);
+  });
+});
+
+describe('remove', () => {
+  it('should remove a meeting', async () => {
+    const result = { id: 1, title: 'Test meeting', userId: 1 };
+    jest.spyOn(prisma.meeting, 'delete').mockResolvedValue(result as any);
+
+    expect(await service.remove(1)).toBe(result);
+  });
+});
 
 });
