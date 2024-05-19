@@ -41,7 +41,7 @@
 ### Mockups
 | Home screen  | Assistant Screen | onBoarding screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/home.png) | ![fsdaf](./readme/demo/assistant.png) | ![fsdaf](./readme/demo/onboarding3.png) |
+| ![Landing](./readme/demo/home.png) | ![fsdaf](./readme/demo/assistant.png) | ![fsdaf](./readme/demo/onboarding2.png) |
 
 <br><br>
 
@@ -49,8 +49,6 @@
 <img src="./readme/title5.svg"/>
 
 ###  Architecting Data Excellence: Innovative Database Design Strategies:
-
-- Insert ER Diagram here
 
 ![ERD](./readme/demo/databaseERD.png)
 
@@ -62,11 +60,11 @@
 
 
 ### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
-| ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| Onboarding screen  | Login screen | Signup screen |
+| ---| ---| ---|
+| ![Welcome](./readme/demo/implementation/onboarding.gif) | ![fsdaf](./readme/demo/implementation/login.gif) | ![fsdaf](./readme/demo/implementation/signup.gif) |
+| Home screen  | Assistant Screen | Schedule Screen |
+| ![HomeScreen](./readme/demo/implementation/homescreen.gif) | ![fsdaf](./readme/demo/implementation/assistantScreen.gif) | ![fsdaf](./readme/demo/implementation/schedule.gif) |
 
 ### Admin Screens (Web)
 | Login screen  | Register screen |  Landing screen |
