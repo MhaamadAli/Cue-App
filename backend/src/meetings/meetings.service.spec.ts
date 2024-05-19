@@ -33,4 +33,20 @@ describe('MeetingsService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  describe('create', () => {
+    it('should create a meeting', async () => {
+      const createMeetingDto: Prisma.MeetingCreateInput = {
+        title: 'Test meeting',
+        user: {
+          connect: { id: 1 },
+        },
+      };
+      const result = { id: 1, ...createMeetingDto, userId: 1 };
+      jest.spyOn(prisma.meeting, 'create').mockResolvedValue(result as any);
+
+      expect(await service.create(createMeetingDto)).toBe(result);
+    });
+  });
+
 });
