@@ -23,9 +23,9 @@ class MeetingListCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Color(0xFF07AB81).withOpacity(0.25),
-            spreadRadius: 5,
-            blurRadius: 8,
+            color: Color(0xFF07AB81).withOpacity(0.4),
+            spreadRadius: 6,
+            blurRadius: 10,
             offset: const Offset(0, 0),
           ),
         ],
