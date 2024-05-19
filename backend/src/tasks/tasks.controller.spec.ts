@@ -85,4 +85,34 @@ describe('TasksController', () => {
       );
     });
   });
+
+  describe('update', () => {
+    it('should update a task', async () => {
+      const updateTaskDto: Prisma.TaskUpdateInput = { title: 'Updated task' };
+      const result = {
+        id: 1,
+        title: 'Updated task',
+        userId: 1,
+        locationId: null,
+      };
+      jest.spyOn(service, 'update').mockResolvedValue(result as any);
+
+      expect(
+        await controller.update(
+          { user: { userId: 1 } } as any,
+          '1',
+          updateTaskDto,
+        ),
+      ).toBe(result);
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove a task', async () => {
+      const result = { id: 1, title: 'Test task', userId: 1, locationId: null };
+      jest.spyOn(service, 'remove').mockResolvedValue(result as any);
+
+      expect(await controller.remove('1')).toBe(result);
+    });
+  });
 });
