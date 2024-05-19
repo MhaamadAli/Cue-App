@@ -14,18 +14,18 @@ class TasksListWidget extends StatelessWidget {
 
     return Container(
       width: screenSize.width * 0.9,
-      height: screenSize.height * 0.46,
+      height: screenSize.height * 0.447,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
       decoration: BoxDecoration(
-        color: Color(0xFF07AB81).withOpacity(0.4),
+        color: Color(0xFF07AB81).withOpacity(0.5),
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
-            color: Color(0xFF07AB81).withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3),
+            color: Color(0xFF07AB81).withOpacity(0.5),
+            spreadRadius: 6,
+            blurRadius: 10,
+            offset: const Offset(0, 0),
           ),
         ],
       ),
