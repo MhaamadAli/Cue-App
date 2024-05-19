@@ -13,8 +13,8 @@ class TaskCard extends StatelessWidget {
   });
 
   String getShortDescription() {
-    return inputTask.description.length > 40
-        ? '${inputTask.description.substring(0, 40)}...'
+    return inputTask.description.length > 38
+        ? '${inputTask.description.substring(0, 38)}...'
         : inputTask.description;
   }
 
