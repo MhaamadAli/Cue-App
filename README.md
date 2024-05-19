@@ -78,7 +78,7 @@
 
 ###  Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
-- This project uses advanced prompt engineering techniques to optimize the interaction with natural language processing models. By skillfully crafting input instructions, we tailor the behavior of the models to achieve precise and efficient language understanding and generation for various tasks and preferences.
+- We use advanced prompt engineering techniques to optimize interaction with natural language processing models. This ensures precise and efficient language understanding and generation for various tasks and preferences.
 
 <br><br>
 
@@ -105,30 +105,37 @@
 <!-- How to run -->
 <img src="./readme/title10.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up Cue locally, follow these steps:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Ensure you have the following installed:
+* Flutter:
+Install Flutter by following the instructions on the Flutter installation page.
 * npm
   ```sh
   npm install npm@latest -g
   ```
+* nestJS
+  ```sh
+  npm i -g @nestjs/cli
+  ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [example](https://example.com)
-2. Clone the repo
-   git clone [github](https://github.com/your_username_/Project-Name.git)
-3. Install NPM packages
+1. Clone the repo
+   git clone [github](https://github.com/MhaamadAli/Cue-App.git)
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Enter your API in `.env`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
-
-Now, you should be able to run Coffee Express locally and explore its features.
+4. Run the Application:
+   ```sh
+   flutter run
+   ```
+Now, you should be able to run CUE locally and explore its features.
