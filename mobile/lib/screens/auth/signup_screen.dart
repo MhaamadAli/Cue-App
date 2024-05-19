@@ -48,7 +48,7 @@ class SignupScreen extends StatelessWidget {
               ),
               MyTextField(
                 controller: usernameController,
-                hintText: 'Mohammad Ali Alaawar',
+                hintText: 'username',
                 obscureText: false,
               ),
               const SizedBox(height: 10),
@@ -80,7 +80,7 @@ class SignupScreen extends StatelessWidget {
               const SizedBox(height: 54),
               MainButton(
                   buttonColor: const Color(0xFF06D6A0),
-                  buttonText: 'Sign up',
+                  buttonText: 'Signup',
                   onPressed: () => handleSignup(context)),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -115,9 +115,7 @@ class SignupScreen extends StatelessWidget {
                     color: Color(0xFF87CEEB),
                   ),
                 ),
-                onPressed: () {
-                  // to be handled later ( Google Oauth )
-                },
+                onPressed: () {},
               ),
             ],
           ),
