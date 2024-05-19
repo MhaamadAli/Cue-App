@@ -71,4 +71,30 @@ describe('MeetingsController', () => {
       expect(await controller.findOne('1')).toBe(result);
     });
   });
+  describe('update', () => {
+    it('should update a meeting', async () => {
+      const updateMeetingDto: Prisma.MeetingUpdateInput = {
+        title: 'Updated meeting',
+      };
+      const result = { id: 1, title: 'Updated meeting', userId: 1 };
+      jest.spyOn(service, 'update').mockResolvedValue(result as any);
+
+      expect(
+        await controller.update(
+          { user: { userId: 1 } } as any,
+          '1',
+          updateMeetingDto,
+        ),
+      ).toBe(result);
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove a meeting', async () => {
+      const result = { id: 1, title: 'Test meeting', userId: 1 };
+      jest.spyOn(service, 'remove').mockResolvedValue(result as any);
+
+      expect(await controller.remove('1')).toBe(result);
+    });
+  });
 });
