@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
 import { JwtAuthGuard } from '../authentication/auth.guard';
+import { Prisma } from '@prisma/client';
 
 describe('TasksController', () => {
   let controller: TasksController;
@@ -36,5 +37,20 @@ describe('TasksController', () => {
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  describe('create', () => {
+    it('should create a task', async () => {
+      const createTaskDto: Prisma.TaskCreateInput = {
+        title: 'Test task',
+        user: {
+          connect: { id: 1 },
+        },
+      };
+      const result = { id: 1, ...createTaskDto, userId: 1, locationId: null };
+      jest.spyOn(service, 'create').mockResolvedValue(result as any);
+
+      expect(await controller.create(createTaskDto)).toBe(result);
+    });
   });
 });
