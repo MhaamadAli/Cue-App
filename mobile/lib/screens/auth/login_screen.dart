@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const Text(
-                  'Log In',
+                  'Login',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 42,
@@ -54,9 +54,8 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 154),
                 MainButton(
                     buttonColor: const Color(0xFF06D6A0),
-                    buttonText: 'Log In',
-                    onPressed: () =>
-                        handleLogin(context)),
+                    buttonText: 'Login',
+                    onPressed: () => handleLogin(context)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -64,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                         style:
                             TextStyle(fontSize: 18, color: Color(0xFF87CEEB))),
                     TextButton(
-                      child: const Text('Sign up',
+                      child: const Text('Signup',
                           style: TextStyle(
                               fontSize: 18, color: Color(0xFFDC143C))),
                       onPressed: () {
@@ -81,9 +80,7 @@ class LoginScreen extends StatelessWidget {
                     'Or connect using Google',
                     style: TextStyle(fontSize: 18, color: Color(0xFF87CEEB)),
                   ),
-                  onPressed: () {
-                    // Handle Google sign-in logic
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
