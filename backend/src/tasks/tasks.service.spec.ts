@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TasksService } from './tasks.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { Prisma } from '@prisma/client';
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -32,4 +33,20 @@ describe('TasksService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  describe('create', () => {
+    it('should create a task', async () => {
+      const createTaskDto: Prisma.TaskCreateInput = {
+        title: 'Test task',
+        user: {
+          connect: { id: 1 },
+        },
+      };
+      const result = { id: 1, ...createTaskDto, userId: 1 };
+      jest.spyOn(prisma.task, 'create').mockResolvedValue(result as any);
+
+      expect(await service.create(createTaskDto)).toBe(result);
+    });
+  });
+
 });
