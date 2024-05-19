@@ -49,4 +49,23 @@ describe('TasksService', () => {
     });
   });
 
+  describe('findAll', () => {
+    it('should return an array of tasks', async () => {
+      const result = [{ id: 1, title: 'Test task', userId: 1 }];
+      jest.spyOn(prisma.task, 'findMany').mockResolvedValue(result as any);
+
+      expect(await service.findAll(1)).toBe(result);
+    });
+  });
+
+  describe('getNotDone', () => {
+    it('should return an array of tasks that are not done', async () => {
+      const result = [
+        { id: 1, title: 'Test task', userId: 1, isChecked: false },
+      ];
+      jest.spyOn(prisma.task, 'findMany').mockResolvedValue(result as any);
+
+      expect(await service.getNotDone(1)).toBe(result);
+    });
+  });
 });
