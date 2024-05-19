@@ -29,7 +29,7 @@ class TasksScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: Column(
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 25),
             Expanded(
               child: tasks.isEmpty
                   ? const Center(
