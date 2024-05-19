@@ -38,6 +38,7 @@ describe('MeetingsService', () => {
     it('should create a meeting', async () => {
       const createMeetingDto: Prisma.MeetingCreateInput = {
         title: 'Test meeting',
+        date: new Date(),
         user: {
           connect: { id: 1 },
         },
