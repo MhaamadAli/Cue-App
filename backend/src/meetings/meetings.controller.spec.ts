@@ -37,7 +37,7 @@ describe('MeetingsController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
-  
+
   describe('create', () => {
     it('should create a meeting', async () => {
       const createMeetingDto: Prisma.MeetingCreateInput = {
@@ -52,5 +52,23 @@ describe('MeetingsController', () => {
       expect(await controller.create(createMeetingDto)).toBe(result);
     });
   });
+  describe('findAll', () => {
+    it('should return an array of meetings', async () => {
+      const result = [{ id: 1, title: 'Test meeting', userId: 1 }];
+      jest.spyOn(service, 'findAll').mockResolvedValue(result as any);
 
+      expect(await controller.findAll({ user: { userId: 1 } } as any)).toBe(
+        result,
+      );
+    });
+  });
+
+  describe('findOne', () => {
+    it('should return a single meeting', async () => {
+      const result = { id: 1, title: 'Test meeting', userId: 1 };
+      jest.spyOn(service, 'findOne').mockResolvedValue(result as any);
+
+      expect(await controller.findOne('1')).toBe(result);
+    });
+  });
 });
