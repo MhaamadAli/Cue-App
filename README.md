@@ -68,7 +68,7 @@
 | Home screen  | Assistant Screen | Schedule Screen |
 | ![HomeScreen](./readme/demo/implementation/homescreen.gif) | ![fsdaf](./readme/demo/implementation/assistantScreen.gif) | ![fsdaf](./readme/demo/implementation/schedule.gif) |
 
-### Admin Screens (Desktob | Web)
+### Admin Screens (Desktop | Web)
 | Login screen  |  Dashboard screen |
 | ---| ---|
 | ![Landing](./readme/demo/adminLogin.png) | ![Dashboard](./readme/demo/dashboard.png) |
@@ -99,7 +99,7 @@
   4. **Location and Data Integration:** A standout feature of our application is the integration of these AI-generated responses with location-specific data and other pertinent information from our app's database, enhancing the relevance and utility of the responses.
 
   ![OpenAiprompt](./readme/demo/prompt.png)
-  
+
 <br><br>
 
 <!-- AWS Deployment -->
