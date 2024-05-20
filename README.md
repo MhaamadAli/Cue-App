@@ -80,9 +80,9 @@
 
 ###  Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
- 1. **User-Driven Keyword Extraction:** The process starts with a customized questionnaire designed for our users. As they respond to these questions, their answers are analyzed to extract key phrases and words.
+   1. **User-Driven Keyword Extraction:** The process starts with a customized questionnaire designed for our users. As they respond to these questions, their answers are analyzed to extract key phrases and words.
 
-  2. **Seamless Prompt Formulation:** The extracted keywords are then expertly woven into a carefully constructed prompt. For example, in our `OpenAIController`, we define a prompt template to act as a personal assistant responsible for creating tasks and scheduling meetings, returning responses in a parsable JSON format. The prompt template includes specific instructions and current date integration to provide context-aware responses.
+   2. **Seamless Prompt Formulation:** The extracted keywords are then expertly woven into a carefully constructed prompt. For example, in our `OpenAIController`, we define a prompt template to act as a personal assistant responsible for creating tasks and scheduling meetings, returning responses in a parsable JSON format. The prompt template includes specific instructions and current date integration to provide context-aware responses.
 
   ```typescript
   const promptTemplate = `
@@ -95,9 +95,9 @@
   The current date is: ${currentDate}
   `;
    ```
-  3.**Context-Aware AI Responses:** Once the enriched prompt, complete with the user's keywords, is fed into OpenAI's GPT model, the magic begins. The model, known for its capability to comprehend and generate human-like text, processes the input. Drawing from its extensive knowledge base and the specific context provided, it generates responses that are not only accurate but also personalized to the user's query.
+   3. **Context-Aware AI Responses:** Once the enriched prompt, complete with the user's keywords, is fed into OpenAI's GPT model, the magic begins. The model, known for its capability to comprehend and generate human-like text, processes the input. Drawing from its extensive knowledge base and the specific context provided, it generates responses that are not only accurate but also personalized to the user's query.
 
-  4. **Location and Data Integration:** A standout feature of our application is the integration of these AI-generated responses with location-specific data and other pertinent information from our app's database, enhancing the relevance and utility of the responses.
+   4. **Location and Data Integration:** A standout feature of our application is the integration of these AI-generated responses with location-specific data and other pertinent information from our app's database, enhancing the relevance and utility of the responses.
 
   ![OpenAiprompt](./readme/demo/prompt.png)
 
@@ -106,9 +106,34 @@
 <!-- AWS Deployment -->
 <img src="./readme/title8.svg"/>
 
-###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+## Efficient AI Deployment: Unleashing the Potential with AWS Integration
 
-- This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+
+### AWS Deployment Steps
+
+1. **Clone the Repository:** 
+   - First, we cloned the repository on the EC2 instance.
+   ```bash
+   git clone https://github.com/MhaamadAli/Cue-App.git
+   ```
+
+2. **Create Docker Image:**
+   - In the backend, we created a `Dockerfile` to define the Docker image configuration.
+
+3. **Build and Run Docker Image:**
+   - We built the Docker image using the `docker build` command.
+   ```bash
+   docker build -t cue-backend .
+   ```
+
+   - We ran the Docker image inside the EC2 instance, exposing it on port 80 and port 443.
+   ```bash
+   docker run -d -p 80:80 -p 443:443 cue-backend
+   ```
+
+By following these steps, we ensure that our application is reliably and efficiently deployed on AWS, ready to handle diverse AI-powered functionalities.
+
 
 <br><br>
 
