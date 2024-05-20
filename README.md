@@ -71,7 +71,7 @@
 ### Admin Screens (Desktob | Web)
 | Login screen  |  Dashboard screen |
 | ---| ---|
-| ![Landing](./readme/demo/adminLogin.png) | ![fsdaf](./readme/demo/adminDashboard.png) |
+| ![Landing](./readme/demo/adminLogin.png) | ![Dashboard](./readme/demo/adminDashboard.png) |
 <br><br>
 
 
