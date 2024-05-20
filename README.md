@@ -80,8 +80,26 @@
 
 ###  Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
-- We use advanced prompt engineering techniques to optimize interaction with natural language processing models. This ensures precise and efficient language understanding and generation for various tasks and preferences.
+ 1. **User-Driven Keyword Extraction:** The process starts with a customized questionnaire designed for our users. As they respond to these questions, their answers are analyzed to extract key phrases and words.
 
+  2. **Seamless Prompt Formulation:** The extracted keywords are then expertly woven into a carefully constructed prompt. For example, in our `OpenAIController`, we define a prompt template to act as a personal assistant responsible for creating tasks and scheduling meetings, returning responses in a parsable JSON format. The prompt template includes specific instructions and current date integration to provide context-aware responses.
+
+  ```typescript
+  const promptTemplate = `
+  act like a personal assistant that is responsible for creating tasks and scheduling meetings, return responses in parsable JSON format.
+  Basically, I will be requesting to create one of two things, task or meeting.
+  When I say something like 'create a task to remind me to buy groceries tomorrow' you will return a JSON object that has a type having a value 'task',
+  'object' having the value as { 'title': 'buy groceries', 'description': 'don't forget to buy groceries from the groceries store' }
+  while when I say something like 'schedule a meeting with Chris for tomorrow at 3pm' you will return a JSON object that has a type of 'meeting'
+  a title 'meeting with Chris' and a description: 'you have a meeting with Chris at 3pm' and a date and time field with the appropriate date and time.
+  The current date is: ${currentDate}
+  `;
+  3.**Context-Aware AI Responses:** Once the enriched prompt, complete with the user's keywords, is fed into OpenAI's GPT model, the magic begins. The model, known for its capability to comprehend and generate human-like text, processes the input. Drawing from its extensive knowledge base and the specific context provided, it generates responses that are not only accurate but also personalized to the user's query.
+
+  4. **Location and Data Integration:** A standout feature of our application is the integration of these AI-generated responses with location-specific data and other pertinent information from our app's database, enhancing the relevance and utility of the responses.
+
+  ![OpenAiprompt](./readme/demo/prompt.png)
+  
 <br><br>
 
 <!-- AWS Deployment -->
