@@ -23,10 +23,12 @@
 
 ###  Cue is built using the following technologies:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses [PostgreSQL](https://www.postgresql.org/). PostgreSQL is a powerful, open-source object-relational database system that allows us to create and manage our app's data effectively.
-- To send notifications, the app uses [Forebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) FCM supports Android, iOS, and the web, allowing us to send and receive messages reliably across platforms.
-- The app uses the fonts ["MonomaniacOne"](https://fonts.google.com/specimen/Monomaniac+One) and ["Roboto"](https://fonts.google.com/specimen/Roboto) to enhance the visual appeal and readability of the app. 
+- **[Flutter](https://flutter.dev/):** Flutter is a cross-platform hybrid app development framework allowing us to use a single codebase for apps on mobile, desktop, and the web.
+- **[NestJS](https://nestjs.com/):** NestJS is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications. We use NestJS with TypeScript for our backend development.
+- **[Prisma](https://www.prisma.io/):** Prisma is an open-source ORM that simplifies database management and querying for our PostgreSQL database.
+- **[PostgreSQL](https://www.postgresql.org/):** PostgreSQL is a powerful, open-source object-relational database system that allows us to create and manage our app's data effectively.
+- **[Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging):** FCM supports Android, iOS, and the web, allowing us to send and receive messages reliably across platforms.
+- **Fonts:** The app uses ["MonomaniacOne"](https://fonts.google.com/specimen/Monomaniac+One) and ["Roboto"](https://fonts.google.com/specimen/Roboto) to enhance the visual appeal and readability of the app.
 
 <br><br>
 <!-- UI UX -->
