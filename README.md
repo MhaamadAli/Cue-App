@@ -94,6 +94,7 @@
   a title 'meeting with Chris' and a description: 'you have a meeting with Chris at 3pm' and a date and time field with the appropriate date and time.
   The current date is: ${currentDate}
   `;
+   ```
   3.**Context-Aware AI Responses:** Once the enriched prompt, complete with the user's keywords, is fed into OpenAI's GPT model, the magic begins. The model, known for its capability to comprehend and generate human-like text, processes the input. Drawing from its extensive knowledge base and the specific context provided, it generates responses that are not only accurate but also personalized to the user's query.
 
   4. **Location and Data Integration:** A standout feature of our application is the integration of these AI-generated responses with location-specific data and other pertinent information from our app's database, enhancing the relevance and utility of the responses.
