@@ -134,6 +134,7 @@ This project leverages AWS deployment strategies to seamlessly integrate and dep
 
 By following these steps, we ensure that our application is reliably and efficiently deployed on AWS, ready to handle diverse AI-powered functionalities.
 
+![serverResponse](./readme/server.png)
 
 <br><br>
 
